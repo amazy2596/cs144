@@ -9,7 +9,7 @@ show_usage () {
 
 start_tun () {
     local TUNNUM="$1" TUNDEV="tun$1"
-    ip tuntap add mode tun user "${SUDO_USER}" name "${TUNDEV}"
+    ip tuntap add mode tun user "${SUDO_USER:-root}" name "${TUNDEV}"
     ip addr add "${TUN_IP_PREFIX}.${TUNNUM}.1/24" dev "${TUNDEV}"
     ip link set dev "${TUNDEV}" up
     ip route change "${TUN_IP_PREFIX}.${TUNNUM}.0/24" dev "${TUNDEV}" rto_min 10ms
@@ -55,9 +55,8 @@ check_tun () {
 }
 
 check_sudo () {
-    if [ "$SUDO_USER" = "root" ]; then
-        echo "please execute this script as a regular user, not as root"
-        exit 1
+    if [ "$(id -u)" = "0" ]; then
+        return
     fi
     if [ -z "$SUDO_USER" ]; then
         # if the user didn't call us with sudo, re-execute
