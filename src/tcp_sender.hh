@@ -93,7 +93,7 @@ private:
 
   std::deque<absTCPSenderMessage> outstandings_segments_;
   Timer timer_;
-  
+
   bool SYN_sent_;
   bool FIN_sent_;
 

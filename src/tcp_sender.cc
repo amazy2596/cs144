@@ -2,8 +2,8 @@
 #include "debug.hh"
 #include "tcp_config.hh"
 #include "wrapping_integers.hh"
-#include <numeric>
 #include <iostream>
+#include <numeric>
 
 using namespace std;
 
@@ -11,9 +11,11 @@ using namespace std;
 uint64_t TCPSender::sequence_numbers_in_flight() const
 {
   // debug( "unimplemented sequence_numbers_in_flight() called" );
-  return std::accumulate(outstandings_segments_.begin(), outstandings_segments_.end(), 0ULL, [&]( uint64_t sum, const absTCPSenderMessage& seg ) {
-    return sum + seg.msg_.sequence_length();
-  });
+  return std::accumulate(
+    outstandings_segments_.begin(),
+    outstandings_segments_.end(),
+    0ULL,
+    [&]( uint64_t sum, const absTCPSenderMessage& seg ) { return sum + seg.msg_.sequence_length(); } );
 }
 
 // This function is for testing only; don't add extra state to support it.
@@ -34,7 +36,8 @@ void TCPSender::push( const TransmitFunction& transmit )
   uint64_t flow_win = rwnd_ == 0 ? 1ULL : rwnd_;
   uint64_t limit_win = flow_win;
 
-  uint64_t avail_win = ( limit_win > sequence_numbers_in_flight() ) ? limit_win - sequence_numbers_in_flight() : 0ULL;
+  uint64_t avail_win
+    = ( limit_win > sequence_numbers_in_flight() ) ? limit_win - sequence_numbers_in_flight() : 0ULL;
   while ( avail_win > 0 ) {
     avail_win = ( limit_win > sequence_numbers_in_flight() ) ? limit_win - sequence_numbers_in_flight() : 0ULL;
 
@@ -49,14 +52,14 @@ void TCPSender::push( const TransmitFunction& transmit )
 
     msg.seqno = Wrap32::wrap( next_seqno_, isn_ );
 
-    uint64_t max_payload_size = min( ( uint64_t ) TCPConfig::MAX_PAYLOAD_SIZE, avail_win - msg.SYN );
+    uint64_t max_payload_size = min( (uint64_t)TCPConfig::MAX_PAYLOAD_SIZE, avail_win - msg.SYN );
 
     read( reader(), max_payload_size, msg.payload );
 
-    if ( reader().is_finished() && !FIN_sent_  && avail_win - msg.SYN - msg.payload.size() > 0 ) {
+    if ( reader().is_finished() && !FIN_sent_ && avail_win - msg.SYN - msg.payload.size() > 0 ) {
       msg.FIN = true;
       FIN_sent_ = true;
-    }    
+    }
 
     if ( msg.sequence_length() == 0 ) {
       break;
@@ -107,7 +110,7 @@ void TCPSender::receive( const TCPReceiverMessage& msg )
       if ( !outstandings_segments_.empty() ) {
         need_fast_retransmit_ = true;
 
-        ssthresh_ = max(  cwnd_ / 2, (uint64_t)2ULL * TCPConfig::MAX_PAYLOAD_SIZE );
+        ssthresh_ = max( cwnd_ / 2, (uint64_t)2ULL * TCPConfig::MAX_PAYLOAD_SIZE );
         cwnd_ = ssthresh_ + 3ULL * TCPConfig::MAX_PAYLOAD_SIZE;
         in_fast_recovery_ = true;
       }
@@ -184,7 +187,7 @@ void TCPSender::tick( uint64_t ms_since_last_tick, const TransmitFunction& trans
   }
 }
 
-bool Timer::is_active() const 
+bool Timer::is_active() const
 {
   return this->active_;
 }
@@ -213,4 +216,3 @@ void Timer::tick( uint64_t ms_since_last_tick )
   }
   this->elapsed_ms_ += ms_since_last_tick;
 }
-

@@ -6,6 +6,8 @@
 
 #include <memory>
 #include <queue>
+#include <unordered_map>
+#include <set>
 
 // A "network interface" that connects IP (the internet layer, or network layer)
 // with Ethernet (the network access layer, or link layer).
@@ -82,4 +84,14 @@ private:
 
   // Datagrams that have been received
   std::queue<InternetDatagram> datagrams_received_ {};
+
+  struct ArpEntry
+  {
+    EthernetAddress mac_ {};
+    int64_t ttl_ms_ { 0 };
+  };
+
+  std::unordered_map<uint32_t, ArpEntry> arp_cache_ {};
+  std::unordered_map<uint32_t, std::queue<InternetDatagram>> datagrams_wait_ip_ {};
+  std::unordered_map<uint32_t, int64_t> arp_request_timers {};
 };
