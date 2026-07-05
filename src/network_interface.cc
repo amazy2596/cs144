@@ -21,8 +21,9 @@ NetworkInterface::NetworkInterface( string_view name,
   , ethernet_address_( ethernet_address )
   , ip_address_( ip_address )
 {
-  // cerr << "DEBUG: Network interface has Ethernet address " << to_string( ethernet_address_ ) << " and IP address "
-      //  << ip_address.ip() << "\n";
+  // cerr << "DEBUG: Network interface has Ethernet address " << to_string( ethernet_address_ ) << " and IP address
+  // "
+  //  << ip_address.ip() << "\n";
 }
 
 //! \param[in] dgram the IPv4 datagram to be sent
@@ -38,10 +39,10 @@ void NetworkInterface::send_datagram( const InternetDatagram& dgram, const Addre
 
   auto it = arp_cache_.find( dst );
   if ( it == arp_cache_.end() ) {
-    datagrams_wait_ip_[ dst ].push( dgram );
+    datagrams_wait_ip_[dst].push( dgram );
 
     if ( arp_request_timers.find( dst ) == arp_request_timers.end() ) {
-      arp_request_timers[ dst ] = 5000;
+      arp_request_timers[dst] = 5000;
       ARPMessage arp_request;
       arp_request.opcode = ARPMessage::OPCODE_REQUEST;
       arp_request.sender_ethernet_address = this->ethernet_address_;
@@ -61,7 +62,7 @@ void NetworkInterface::send_datagram( const InternetDatagram& dgram, const Addre
 
     EthernetFrame frame;
     frame.header.src = this->ethernet_address_;
-    frame.header.dst = (*it).second.mac_;
+    frame.header.dst = ( *it ).second.mac_;
     frame.header.type = EthernetHeader::TYPE_IPv4;
     frame.payload = serialize( dgram );
     transmit( frame );
@@ -73,7 +74,7 @@ void NetworkInterface::recv_frame( EthernetFrame frame )
 {
   // debug( "unimplemented recv_frame called" );
   // (void)frame;
-  if ( !(frame.header.dst == ETHERNET_BROADCAST || frame.header.dst == this->ethernet_address_) ) {
+  if ( !( frame.header.dst == ETHERNET_BROADCAST || frame.header.dst == this->ethernet_address_ ) ) {
     return;
   }
 
@@ -86,12 +87,12 @@ void NetworkInterface::recv_frame( EthernetFrame frame )
     ARPMessage arp_msg;
 
     if ( parse( arp_msg, frame.payload ) ) {
-      arp_cache_[ arp_msg.sender_ip_address ] = ArpEntry{ arp_msg.sender_ethernet_address, 30000 };
+      arp_cache_[arp_msg.sender_ip_address] = ArpEntry { arp_msg.sender_ethernet_address, 30000 };
       arp_request_timers.erase( arp_msg.sender_ip_address );
 
-      while ( !datagrams_wait_ip_[ arp_msg.sender_ip_address ].empty() ) {
-        InternetDatagram dgram = std::move( datagrams_wait_ip_[ arp_msg.sender_ip_address ].front() );
-        datagrams_wait_ip_[ arp_msg.sender_ip_address ].pop();
+      while ( !datagrams_wait_ip_[arp_msg.sender_ip_address].empty() ) {
+        InternetDatagram dgram = std::move( datagrams_wait_ip_[arp_msg.sender_ip_address].front() );
+        datagrams_wait_ip_[arp_msg.sender_ip_address].pop();
 
         EthernetFrame frame_send;
         frame_send.header.src = this->ethernet_address_;
@@ -101,7 +102,8 @@ void NetworkInterface::recv_frame( EthernetFrame frame )
         transmit( frame_send );
       }
 
-      if ( arp_msg.opcode == ARPMessage::OPCODE_REQUEST && arp_msg.target_ip_address == this->ip_address_.ipv4_numeric() ) {
+      if ( arp_msg.opcode == ARPMessage::OPCODE_REQUEST
+           && arp_msg.target_ip_address == this->ip_address_.ipv4_numeric() ) {
         ARPMessage arp_reply;
         arp_reply.opcode = ARPMessage::OPCODE_REPLY;
         arp_reply.sender_ethernet_address = this->ethernet_address_;
@@ -125,25 +127,21 @@ void NetworkInterface::recv_frame( EthernetFrame frame )
 void NetworkInterface::tick( const size_t ms_since_last_tick )
 {
   // debug( "unimplemented tick({}) called", ms_since_last_tick );
-  std::erase_if( 
-    arp_cache_,
-    [&]( auto& item ) {
-      auto& [key, val] = item;
-      val.ttl_ms_ -= ms_since_last_tick;
+  std::erase_if( arp_cache_, [&]( auto& item ) {
+    auto& [key, val] = item;
+    val.ttl_ms_ -= ms_since_last_tick;
 
-      return val.ttl_ms_ <= 0;
-    }
-  );
+    return val.ttl_ms_ <= 0;
+  } );
 
-  std::erase_if( 
-    arp_request_timers,
-    [&]( auto& item ) {
-      auto& [key, val] = item;
-      val -= ms_since_last_tick;
-      if ( val <= 0 ) {
-        while ( !datagrams_wait_ip_[ key ].empty() ) { datagrams_wait_ip_[ key ].pop(); }
+  std::erase_if( arp_request_timers, [&]( auto& item ) {
+    auto& [key, val] = item;
+    val -= ms_since_last_tick;
+    if ( val <= 0 ) {
+      while ( !datagrams_wait_ip_[key].empty() ) {
+        datagrams_wait_ip_[key].pop();
       }
-      return val <= 0;
     }
-  );
+    return val <= 0;
+  } );
 }

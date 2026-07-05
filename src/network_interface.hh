@@ -6,8 +6,8 @@
 
 #include <memory>
 #include <queue>
-#include <unordered_map>
 #include <set>
+#include <unordered_map>
 
 // A "network interface" that connects IP (the internet layer, or network layer)
 // with Ethernet (the network access layer, or link layer).
