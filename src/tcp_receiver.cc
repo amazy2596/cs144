@@ -10,7 +10,6 @@ void TCPReceiver::receive( TCPSenderMessage message )
 
   if ( message.RST == true ) {
     reader().set_error();
-    send();
     return;
   }
 
@@ -25,8 +24,6 @@ void TCPReceiver::receive( TCPSenderMessage message )
 
   uint64_t first_index = message.seqno.unwrap( zero_point_, writer().bytes_pushed() + 1 ) + message.SYN - 1;
   reassembler_.insert( first_index, message.payload, message.FIN );
-
-  send();
 }
 
 TCPReceiverMessage TCPReceiver::send() const

@@ -30,7 +30,7 @@ void Reassembler::insert( uint64_t first_index, string data, bool is_last_substr
   }
 
   uint64_t start_idx = 0;
-  if ( first_unassembled_index_ > first_index ) {
+  if ( first_index < first_unassembled_index_ ) {
     start_idx += first_unassembled_index_ - first_index;
     first_index += first_unassembled_index_ - first_index;
   }

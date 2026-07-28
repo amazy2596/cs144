@@ -35,6 +35,7 @@ void TCPSender::push( const TransmitFunction& transmit )
 
   uint64_t flow_win = rwnd_ == 0 ? 1ULL : rwnd_;
   uint64_t limit_win = flow_win;
+  // uint64_t limit_win = min( flow_win, cwnd_ );
 
   uint64_t avail_win
     = ( limit_win > sequence_numbers_in_flight() ) ? limit_win - sequence_numbers_in_flight() : 0ULL;

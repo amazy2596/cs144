@@ -1,0 +1,2776 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 39K of event 'cpu-clock:ppp'
+# Event count (approx.): 9917250000
+#
+# Children      Self  Command  Shared Object      Symbol                            
+# ........  ........  .......  .................  ..................................
+#
+    81.07%    44.43%  swapper  [kernel.kallsyms]  [k] cpu_startup_entry
+            |          
+            |--39.49%--__secondary_switched
+            |          secondary_start_kernel
+            |          cpu_startup_entry
+            |          
+            |--36.64%--cpu_startup_entry
+            |          |          
+            |          |--32.99%--arch_local_irq_enable
+            |          |          
+            |          |--3.09%--el1h_64_irq
+            |          |          el1h_64_irq_handler
+            |          |          el1_interrupt
+            |          |          irq_exit_rcu
+            |          |          do_softirq_own_stack
+            |          |          call_on_irq_stack
+            |          |          ____do_softirq
+            |          |          |          
+            |          |           --2.72%--__do_softirq
+            |          |          
+            |           --0.53%--schedule_idle
+            |          
+             --4.94%--__primary_switched
+                       start_kernel
+                       rest_init
+                       cpu_startup_entry
+
+    65.82%     0.00%  swapper  [kernel.kallsyms]  [k] __secondary_switched
+            |
+            ---__secondary_switched
+               secondary_start_kernel
+               |          
+                --65.77%--cpu_startup_entry
+                          |          
+                          |--24.19%--arch_local_irq_enable
+                          |          
+                           --1.62%--el1h_64_irq
+                                     el1h_64_irq_handler
+                                     el1_interrupt
+                                     irq_exit_rcu
+                                     do_softirq_own_stack
+                                     call_on_irq_stack
+                                     ____do_softirq
+                                     |          
+                                      --1.42%--__do_softirq
+
+    65.82%     0.00%  swapper  [kernel.kallsyms]  [k] secondary_start_kernel
+            |
+            ---secondary_start_kernel
+               |          
+                --65.77%--cpu_startup_entry
+                          |          
+                          |--24.19%--arch_local_irq_enable
+                          |          
+                           --1.62%--el1h_64_irq
+                                     el1h_64_irq_handler
+                                     el1_interrupt
+                                     irq_exit_rcu
+                                     do_softirq_own_stack
+                                     call_on_irq_stack
+                                     ____do_softirq
+                                     |          
+                                      --1.42%--__do_softirq
+
+    32.99%    32.58%  swapper  [kernel.kallsyms]  [k] arch_local_irq_enable
+            |          
+            |--24.15%--__secondary_switched
+            |          secondary_start_kernel
+            |          cpu_startup_entry
+            |          arch_local_irq_enable
+            |          
+             --8.43%--__primary_switched
+                       start_kernel
+                       rest_init
+                       cpu_startup_entry
+                       arch_local_irq_enable
+
+    15.30%     0.00%  swapper  [kernel.kallsyms]  [k] __primary_switched
+            |
+            ---__primary_switched
+               start_kernel
+               rest_init
+               |          
+                --15.30%--cpu_startup_entry
+                          |          
+                          |--8.79%--arch_local_irq_enable
+                          |          
+                           --1.47%--el1h_64_irq
+                                     el1h_64_irq_handler
+                                     el1_interrupt
+                                     irq_exit_rcu
+                                     do_softirq_own_stack
+                                     call_on_irq_stack
+                                     ____do_softirq
+                                     |          
+                                      --1.30%--__do_softirq
+
+    15.30%     0.00%  swapper  [kernel.kallsyms]  [k] start_kernel
+            |
+            ---start_kernel
+               rest_init
+               |          
+                --15.30%--cpu_startup_entry
+                          |          
+                          |--8.79%--arch_local_irq_enable
+                          |          
+                           --1.47%--el1h_64_irq
+                                     el1h_64_irq_handler
+                                     el1_interrupt
+                                     irq_exit_rcu
+                                     do_softirq_own_stack
+                                     call_on_irq_stack
+                                     ____do_softirq
+                                     |          
+                                      --1.30%--__do_softirq
+
+    15.30%     0.00%  swapper  [kernel.kallsyms]  [k] rest_init
+            |
+            ---rest_init
+               |          
+                --15.30%--cpu_startup_entry
+                          |          
+                          |--8.79%--arch_local_irq_enable
+                          |          
+                           --1.47%--el1h_64_irq
+                                     el1h_64_irq_handler
+                                     el1_interrupt
+                                     irq_exit_rcu
+                                     do_softirq_own_stack
+                                     call_on_irq_stack
+                                     ____do_softirq
+                                     |          
+                                      --1.30%--__do_softirq
+
+    13.27%     0.00%  nc       libc.so.6          [.] __libc_start_main@@GLIBC_2.34
+            |
+            ---__libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+               |--9.35%--0xaaaab30730e4
+               |          |          
+               |          |--5.33%--0xaaaab30756d0
+               |          |          |          
+               |          |           --5.31%--0xaaaab30749d8
+               |          |                     |          
+               |          |                      --5.30%--__syscall_cancel
+               |          |                                |          
+               |          |                                 --5.30%--__internal_syscall_cancel
+               |          |                                           |          
+               |          |                                            --5.13%--el0t_64_sync
+               |          |                                                      el0t_64_sync_handler
+               |          |                                                      |          
+               |          |                                                       --5.06%--el0_svc
+               |          |                                                                 |          
+               |          |                                                                  --5.05%--do_el0_svc
+               |          |                                                                            |          
+               |          |                                                                             --5.02%--__arm64_sys_read
+               |          |                                                                                       |          
+               |          |                                                                                        --4.94%--anon_pipe_read
+               |          |                                                                                                  |          
+               |          |                                                                                                  |--2.15%--__wake_up_sync_key
+               |          |                                                                                                  |          
+               |          |                                                                                                  |--1.28%--mutex_lock
+               |          |                                                                                                  |          |          
+               |          |                                                                                                  |           --1.28%--__mutex_lock_slowpath
+               |          |                                                                                                  |                     |          
+               |          |                                                                                                  |                      --1.25%--mutex_spin_on_owner
+               |          |                                                                                                  |          
+               |          |                                                                                                   --1.26%--__arch_copy_to_user
+               |          |          
+               |          |--2.67%--0xaaaab307543c
+               |          |          |          
+               |          |           --2.63%--0xaaaab3075104
+               |          |                     __syscall_cancel
+               |          |                     |          
+               |          |                      --2.62%--__internal_syscall_cancel
+               |          |                                |          
+               |          |                                 --2.48%--el0t_64_sync
+               |          |                                           el0t_64_sync_handler
+               |          |                                           |          
+               |          |                                            --2.39%--el0_svc
+               |          |                                                      |          
+               |          |                                                       --2.13%--do_el0_svc
+               |          |                                                                 |          
+               |          |                                                                  --2.10%--__arm64_sys_write
+               |          |                                                                            |          
+               |          |                                                                             --2.03%--sock_write_iter
+               |          |                                                                                       |          
+               |          |                                                                                        --2.03%--inet_sendmsg
+               |          |                                                                                                  |          
+               |          |                                                                                                   --2.01%--tcp_sendmsg
+               |          |                                                                                                             |          
+               |          |                                                                                                              --1.00%--__arch_copy_from_user
+               |          |          
+               |           --1.29%--0xaaaab307533c
+               |                     |          
+               |                      --1.28%--__poll
+               |                                |          
+               |                                 --1.28%--__syscall_cancel
+               |                                           |          
+               |                                            --1.27%--__internal_syscall_cancel
+               |                                                      |          
+               |                                                       --0.98%--el0t_64_sync
+               |                                                                 el0t_64_sync_handler
+               |                                                                 |          
+               |                                                                  --0.81%--el0_svc
+               |                                                                            |          
+               |                                                                             --0.79%--do_el0_svc
+               |                                                                                       |          
+               |                                                                                        --0.75%--__arm64_sys_ppoll
+               |          
+                --3.91%--0xaaaad8542e18
+                          |          
+                          |--1.89%--0xaaaad8545650
+                          |          |          
+                          |           --1.89%--0xaaaad85449d8
+                          |                     __syscall_cancel
+                          |                     |          
+                          |                      --1.88%--__internal_syscall_cancel
+                          |                                |          
+                          |                                 --1.74%--el0t_64_sync
+                          |                                           el0t_64_sync_handler
+                          |                                           |          
+                          |                                            --1.65%--el0_svc
+                          |                                                      |          
+                          |                                                       --1.65%--do_el0_svc
+                          |                                                                 |          
+                          |                                                                  --1.63%--__arm64_sys_read
+                          |                                                                            |          
+                          |                                                                             --1.57%--sock_read_iter
+                          |                                                                                       |          
+                          |                                                                                        --1.56%--inet_recvmsg
+                          |                                                                                                  |          
+                          |                                                                                                   --1.56%--tcp_recvmsg
+                          |                                                                                                             |          
+                          |                                                                                                             |--0.85%--skb_copy_datagram_iter
+                          |                                                                                                             |          |          
+                          |                                                                                                             |           --0.85%--__skb_datagram_iter
+                          |                                                                                                             |                     |          
+                          |                                                                                                             |                      --0.82%--__arch_copy_to_user
+                          |                                                                                                             |          
+                          |                                                                                                              --0.56%--tcp_send_ack
+                          |                                                                                                                        |          
+                          |                                                                                                                         --0.55%--__tcp_transmit_skb
+                          |          
+                           --1.65%--0xaaaad854533c
+                                     |          
+                                      --1.63%--__poll
+                                                |          
+                                                 --1.62%--__syscall_cancel
+                                                           __internal_syscall_cancel
+                                                           |          
+                                                            --1.33%--el0t_64_sync
+                                                                      el0t_64_sync_handler
+                                                                      |          
+                                                                       --1.16%--el0_svc
+                                                                                 |          
+                                                                                  --1.15%--do_el0_svc
+                                                                                            |          
+                                                                                             --1.05%--__arm64_sys_ppoll
+
+    13.27%     0.00%  nc       libc.so.6          [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               |          
+               |--9.35%--0xaaaab30730e4
+               |          |          
+               |          |--5.33%--0xaaaab30756d0
+               |          |          |          
+               |          |           --5.31%--0xaaaab30749d8
+               |          |                     |          
+               |          |                      --5.30%--__syscall_cancel
+               |          |                                |          
+               |          |                                 --5.30%--__internal_syscall_cancel
+               |          |                                           |          
+               |          |                                            --5.13%--el0t_64_sync
+               |          |                                                      el0t_64_sync_handler
+               |          |                                                      |          
+               |          |                                                       --5.06%--el0_svc
+               |          |                                                                 |          
+               |          |                                                                  --5.05%--do_el0_svc
+               |          |                                                                            |          
+               |          |                                                                             --5.02%--__arm64_sys_read
+               |          |                                                                                       |          
+               |          |                                                                                        --4.94%--anon_pipe_read
+               |          |                                                                                                  |          
+               |          |                                                                                                  |--2.15%--__wake_up_sync_key
+               |          |                                                                                                  |          
+               |          |                                                                                                  |--1.28%--mutex_lock
+               |          |                                                                                                  |          |          
+               |          |                                                                                                  |           --1.28%--__mutex_lock_slowpath
+               |          |                                                                                                  |                     |          
+               |          |                                                                                                  |                      --1.25%--mutex_spin_on_owner
+               |          |                                                                                                  |          
+               |          |                                                                                                   --1.26%--__arch_copy_to_user
+               |          |          
+               |          |--2.67%--0xaaaab307543c
+               |          |          |          
+               |          |           --2.63%--0xaaaab3075104
+               |          |                     __syscall_cancel
+               |          |                     |          
+               |          |                      --2.62%--__internal_syscall_cancel
+               |          |                                |          
+               |          |                                 --2.48%--el0t_64_sync
+               |          |                                           el0t_64_sync_handler
+               |          |                                           |          
+               |          |                                            --2.39%--el0_svc
+               |          |                                                      |          
+               |          |                                                       --2.13%--do_el0_svc
+               |          |                                                                 |          
+               |          |                                                                  --2.10%--__arm64_sys_write
+               |          |                                                                            |          
+               |          |                                                                             --2.03%--sock_write_iter
+               |          |                                                                                       |          
+               |          |                                                                                        --2.03%--inet_sendmsg
+               |          |                                                                                                  |          
+               |          |                                                                                                   --2.01%--tcp_sendmsg
+               |          |                                                                                                             |          
+               |          |                                                                                                              --1.00%--__arch_copy_from_user
+               |          |          
+               |           --1.29%--0xaaaab307533c
+               |                     |          
+               |                      --1.28%--__poll
+               |                                |          
+               |                                 --1.28%--__syscall_cancel
+               |                                           |          
+               |                                            --1.27%--__internal_syscall_cancel
+               |                                                      |          
+               |                                                       --0.98%--el0t_64_sync
+               |                                                                 el0t_64_sync_handler
+               |                                                                 |          
+               |                                                                  --0.81%--el0_svc
+               |                                                                            |          
+               |                                                                             --0.79%--do_el0_svc
+               |                                                                                       |          
+               |                                                                                        --0.75%--__arm64_sys_ppoll
+               |          
+                --3.91%--0xaaaad8542e18
+                          |          
+                          |--1.89%--0xaaaad8545650
+                          |          |          
+                          |           --1.89%--0xaaaad85449d8
+                          |                     __syscall_cancel
+                          |                     |          
+                          |                      --1.88%--__internal_syscall_cancel
+                          |                                |          
+                          |                                 --1.74%--el0t_64_sync
+                          |                                           el0t_64_sync_handler
+                          |                                           |          
+                          |                                            --1.65%--el0_svc
+                          |                                                      |          
+                          |                                                       --1.65%--do_el0_svc
+                          |                                                                 |          
+                          |                                                                  --1.63%--__arm64_sys_read
+                          |                                                                            |          
+                          |                                                                             --1.57%--sock_read_iter
+                          |                                                                                       |          
+                          |                                                                                        --1.56%--inet_recvmsg
+                          |                                                                                                  |          
+                          |                                                                                                   --1.56%--tcp_recvmsg
+                          |                                                                                                             |          
+                          |                                                                                                             |--0.85%--skb_copy_datagram_iter
+                          |                                                                                                             |          |          
+                          |                                                                                                             |           --0.85%--__skb_datagram_iter
+                          |                                                                                                             |                     |          
+                          |                                                                                                             |                      --0.82%--__arch_copy_to_user
+                          |                                                                                                             |          
+                          |                                                                                                              --0.56%--tcp_send_ack
+                          |                                                                                                                        |          
+                          |                                                                                                                         --0.55%--__tcp_transmit_skb
+                          |          
+                           --1.65%--0xaaaad854533c
+                                     |          
+                                      --1.63%--__poll
+                                                |          
+                                                 --1.62%--__syscall_cancel
+                                                           __internal_syscall_cancel
+                                                           |          
+                                                            --1.33%--el0t_64_sync
+                                                                      el0t_64_sync_handler
+                                                                      |          
+                                                                       --1.16%--el0_svc
+                                                                                 |          
+                                                                                  --1.15%--do_el0_svc
+                                                                                            |          
+                                                                                             --1.05%--__arm64_sys_ppoll
+
+    13.02%     0.03%  nc       libc.so.6          [.] __syscall_cancel
+            |          
+             --12.99%--__syscall_cancel
+                       __internal_syscall_cancel
+                       |          
+                        --11.83%--el0t_64_sync
+                                  el0t_64_sync_handler
+                                  |          
+                                  |--11.17%--el0_svc
+                                  |          |          
+                                  |           --10.85%--do_el0_svc
+                                  |                     |          
+                                  |                     |--6.66%--__arm64_sys_read
+                                  |                     |          |          
+                                  |                     |          |--4.94%--anon_pipe_read
+                                  |                     |          |          |          
+                                  |                     |          |          |--2.15%--__wake_up_sync_key
+                                  |                     |          |          |          
+                                  |                     |          |          |--1.28%--mutex_lock
+                                  |                     |          |          |          |          
+                                  |                     |          |          |           --1.28%--__mutex_lock_slowpath
+                                  |                     |          |          |                     |          
+                                  |                     |          |          |                      --1.25%--mutex_spin_on_owner
+                                  |                     |          |          |          
+                                  |                     |          |           --1.26%--__arch_copy_to_user
+                                  |                     |          |          
+                                  |                     |           --1.57%--sock_read_iter
+                                  |                     |                     |          
+                                  |                     |                      --1.56%--inet_recvmsg
+                                  |                     |                                |          
+                                  |                     |                                 --1.56%--tcp_recvmsg
+                                  |                     |                                           |          
+                                  |                     |                                           |--0.85%--skb_copy_datagram_iter
+                                  |                     |                                           |          |          
+                                  |                     |                                           |           --0.85%--__skb_datagram_iter
+                                  |                     |                                           |                     |          
+                                  |                     |                                           |                      --0.82%--__arch_copy_to_user
+                                  |                     |                                           |          
+                                  |                     |                                            --0.56%--tcp_send_ack
+                                  |                     |                                                      |          
+                                  |                     |                                                       --0.55%--__tcp_transmit_skb
+                                  |                     |          
+                                  |                     |--2.16%--__arm64_sys_write
+                                  |                     |          |          
+                                  |                     |           --2.03%--sock_write_iter
+                                  |                     |                     |          
+                                  |                     |                      --2.03%--inet_sendmsg
+                                  |                     |                                |          
+                                  |                     |                                 --2.01%--tcp_sendmsg
+                                  |                     |                                           |          
+                                  |                     |                                            --1.00%--__arch_copy_from_user
+                                  |                     |          
+                                  |                      --1.79%--__arm64_sys_ppoll
+                                  |                                |          
+                                  |                                 --0.73%--fdget
+                                  |          
+                                   --0.66%--local_daif_restore
+
+    12.99%     1.17%  nc       libc.so.6          [.] __internal_syscall_cancel
+            |          
+            |--11.83%--__internal_syscall_cancel
+            |          el0t_64_sync
+            |          el0t_64_sync_handler
+            |          |          
+            |          |--11.17%--el0_svc
+            |          |          |          
+            |          |           --10.85%--do_el0_svc
+            |          |                     |          
+            |          |                     |--6.66%--__arm64_sys_read
+            |          |                     |          |          
+            |          |                     |          |--4.94%--anon_pipe_read
+            |          |                     |          |          |          
+            |          |                     |          |          |--2.15%--__wake_up_sync_key
+            |          |                     |          |          |          
+            |          |                     |          |          |--1.28%--mutex_lock
+            |          |                     |          |          |          |          
+            |          |                     |          |          |           --1.28%--__mutex_lock_slowpath
+            |          |                     |          |          |                     |          
+            |          |                     |          |          |                      --1.25%--mutex_spin_on_owner
+            |          |                     |          |          |          
+            |          |                     |          |           --1.26%--__arch_copy_to_user
+            |          |                     |          |          
+            |          |                     |           --1.57%--sock_read_iter
+            |          |                     |                     |          
+            |          |                     |                      --1.56%--inet_recvmsg
+            |          |                     |                                |          
+            |          |                     |                                 --1.56%--tcp_recvmsg
+            |          |                     |                                           |          
+            |          |                     |                                           |--0.85%--skb_copy_datagram_iter
+            |          |                     |                                           |          |          
+            |          |                     |                                           |           --0.85%--__skb_datagram_iter
+            |          |                     |                                           |                     |          
+            |          |                     |                                           |                      --0.82%--__arch_copy_to_user
+            |          |                     |                                           |          
+            |          |                     |                                            --0.56%--tcp_send_ack
+            |          |                     |                                                      |          
+            |          |                     |                                                       --0.55%--__tcp_transmit_skb
+            |          |                     |          
+            |          |                     |--2.16%--__arm64_sys_write
+            |          |                     |          |          
+            |          |                     |           --2.03%--sock_write_iter
+            |          |                     |                     |          
+            |          |                     |                      --2.03%--inet_sendmsg
+            |          |                     |                                |          
+            |          |                     |                                 --2.01%--tcp_sendmsg
+            |          |                     |                                           |          
+            |          |                     |                                            --1.00%--__arch_copy_from_user
+            |          |                     |          
+            |          |                      --1.79%--__arm64_sys_ppoll
+            |          |                                |          
+            |          |                                 --0.73%--fdget
+            |          |          
+            |           --0.66%--local_daif_restore
+            |          
+            |--0.60%--0xaaaab3074070
+            |          __libc_start_main@@GLIBC_2.34
+            |          __libc_start_call_main
+            |          0xaaaab30730e4
+            |          
+             --0.56%--0xaaaad8544070
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       0xaaaad8542e18
+
+    11.83%     0.00%  nc       [kernel.kallsyms]  [k] el0t_64_sync
+            |
+            ---el0t_64_sync
+               el0t_64_sync_handler
+               |          
+               |--11.17%--el0_svc
+               |          |          
+               |           --10.86%--do_el0_svc
+               |                     |          
+               |                     |--6.66%--__arm64_sys_read
+               |                     |          |          
+               |                     |          |--4.94%--anon_pipe_read
+               |                     |          |          |          
+               |                     |          |          |--2.15%--__wake_up_sync_key
+               |                     |          |          |          
+               |                     |          |          |--1.28%--mutex_lock
+               |                     |          |          |          |          
+               |                     |          |          |           --1.28%--__mutex_lock_slowpath
+               |                     |          |          |                     |          
+               |                     |          |          |                      --1.25%--mutex_spin_on_owner
+               |                     |          |          |          
+               |                     |          |           --1.26%--__arch_copy_to_user
+               |                     |          |          
+               |                     |           --1.57%--sock_read_iter
+               |                     |                     |          
+               |                     |                      --1.56%--inet_recvmsg
+               |                     |                                |          
+               |                     |                                 --1.56%--tcp_recvmsg
+               |                     |                                           |          
+               |                     |                                           |--0.85%--skb_copy_datagram_iter
+               |                     |                                           |          |          
+               |                     |                                           |           --0.85%--__skb_datagram_iter
+               |                     |                                           |                     |          
+               |                     |                                           |                      --0.82%--__arch_copy_to_user
+               |                     |                                           |          
+               |                     |                                            --0.56%--tcp_send_ack
+               |                     |                                                      |          
+               |                     |                                                       --0.55%--__tcp_transmit_skb
+               |                     |          
+               |                     |--2.16%--__arm64_sys_write
+               |                     |          |          
+               |                     |           --2.03%--sock_write_iter
+               |                     |                     |          
+               |                     |                      --2.03%--inet_sendmsg
+               |                     |                                |          
+               |                     |                                 --2.01%--tcp_sendmsg
+               |                     |                                           |          
+               |                     |                                            --1.00%--__arch_copy_from_user
+               |                     |          
+               |                      --1.79%--__arm64_sys_ppoll
+               |                                |          
+               |                                 --0.73%--fdget
+               |          
+                --0.66%--local_daif_restore
+
+    11.83%     0.00%  nc       [kernel.kallsyms]  [k] el0t_64_sync_handler
+            |
+            ---el0t_64_sync_handler
+               |          
+               |--11.17%--el0_svc
+               |          |          
+               |           --10.86%--do_el0_svc
+               |                     |          
+               |                     |--6.66%--__arm64_sys_read
+               |                     |          |          
+               |                     |          |--4.94%--anon_pipe_read
+               |                     |          |          |          
+               |                     |          |          |--2.15%--__wake_up_sync_key
+               |                     |          |          |          
+               |                     |          |          |--1.28%--mutex_lock
+               |                     |          |          |          |          
+               |                     |          |          |           --1.28%--__mutex_lock_slowpath
+               |                     |          |          |                     |          
+               |                     |          |          |                      --1.25%--mutex_spin_on_owner
+               |                     |          |          |          
+               |                     |          |           --1.26%--__arch_copy_to_user
+               |                     |          |          
+               |                     |           --1.57%--sock_read_iter
+               |                     |                     |          
+               |                     |                      --1.56%--inet_recvmsg
+               |                     |                                |          
+               |                     |                                 --1.56%--tcp_recvmsg
+               |                     |                                           |          
+               |                     |                                           |--0.85%--skb_copy_datagram_iter
+               |                     |                                           |          |          
+               |                     |                                           |           --0.85%--__skb_datagram_iter
+               |                     |                                           |                     |          
+               |                     |                                           |                      --0.82%--__arch_copy_to_user
+               |                     |                                           |          
+               |                     |                                            --0.56%--tcp_send_ack
+               |                     |                                                      |          
+               |                     |                                                       --0.55%--__tcp_transmit_skb
+               |                     |          
+               |                     |--2.16%--__arm64_sys_write
+               |                     |          |          
+               |                     |           --2.03%--sock_write_iter
+               |                     |                     |          
+               |                     |                      --2.03%--inet_sendmsg
+               |                     |                                |          
+               |                     |                                 --2.01%--tcp_sendmsg
+               |                     |                                           |          
+               |                     |                                            --1.00%--__arch_copy_from_user
+               |                     |          
+               |                      --1.79%--__arm64_sys_ppoll
+               |                                |          
+               |                                 --0.73%--fdget
+               |          
+                --0.66%--local_daif_restore
+
+    11.17%     0.03%  nc       [kernel.kallsyms]  [k] el0_svc
+            |          
+             --11.14%--el0_svc
+                       |          
+                        --10.86%--do_el0_svc
+                                  |          
+                                  |--6.66%--__arm64_sys_read
+                                  |          |          
+                                  |          |--4.94%--anon_pipe_read
+                                  |          |          |          
+                                  |          |          |--2.15%--__wake_up_sync_key
+                                  |          |          |          
+                                  |          |          |--1.28%--mutex_lock
+                                  |          |          |          |          
+                                  |          |          |           --1.28%--__mutex_lock_slowpath
+                                  |          |          |                     |          
+                                  |          |          |                      --1.25%--mutex_spin_on_owner
+                                  |          |          |          
+                                  |          |           --1.26%--__arch_copy_to_user
+                                  |          |          
+                                  |           --1.57%--sock_read_iter
+                                  |                     |          
+                                  |                      --1.56%--inet_recvmsg
+                                  |                                |          
+                                  |                                 --1.56%--tcp_recvmsg
+                                  |                                           |          
+                                  |                                           |--0.85%--skb_copy_datagram_iter
+                                  |                                           |          |          
+                                  |                                           |           --0.85%--__skb_datagram_iter
+                                  |                                           |                     |          
+                                  |                                           |                      --0.82%--__arch_copy_to_user
+                                  |                                           |          
+                                  |                                            --0.56%--tcp_send_ack
+                                  |                                                      |          
+                                  |                                                       --0.55%--__tcp_transmit_skb
+                                  |          
+                                  |--2.16%--__arm64_sys_write
+                                  |          |          
+                                  |           --2.03%--sock_write_iter
+                                  |                     |          
+                                  |                      --2.03%--inet_sendmsg
+                                  |                                |          
+                                  |                                 --2.01%--tcp_sendmsg
+                                  |                                           |          
+                                  |                                            --1.00%--__arch_copy_from_user
+                                  |          
+                                   --1.79%--__arm64_sys_ppoll
+                                             |          
+                                              --0.73%--fdget
+
+    10.86%     0.19%  nc       [kernel.kallsyms]  [k] do_el0_svc
+            |          
+             --10.67%--do_el0_svc
+                       |          
+                       |--6.66%--__arm64_sys_read
+                       |          |          
+                       |          |--4.94%--anon_pipe_read
+                       |          |          |          
+                       |          |          |--2.15%--__wake_up_sync_key
+                       |          |          |          
+                       |          |          |--1.28%--mutex_lock
+                       |          |          |          |          
+                       |          |          |           --1.28%--__mutex_lock_slowpath
+                       |          |          |                     |          
+                       |          |          |                      --1.25%--mutex_spin_on_owner
+                       |          |          |          
+                       |          |           --1.26%--__arch_copy_to_user
+                       |          |          
+                       |           --1.57%--sock_read_iter
+                       |                     |          
+                       |                      --1.56%--inet_recvmsg
+                       |                                |          
+                       |                                 --1.56%--tcp_recvmsg
+                       |                                           |          
+                       |                                           |--0.85%--skb_copy_datagram_iter
+                       |                                           |          |          
+                       |                                           |           --0.85%--__skb_datagram_iter
+                       |                                           |                     |          
+                       |                                           |                      --0.82%--__arch_copy_to_user
+                       |                                           |          
+                       |                                            --0.56%--tcp_send_ack
+                       |                                                      |          
+                       |                                                       --0.55%--__tcp_transmit_skb
+                       |          
+                       |--2.16%--__arm64_sys_write
+                       |          |          
+                       |           --2.03%--sock_write_iter
+                       |                     |          
+                       |                      --2.03%--inet_sendmsg
+                       |                                |          
+                       |                                 --2.01%--tcp_sendmsg
+                       |                                           |          
+                       |                                            --1.00%--__arch_copy_from_user
+                       |          
+                        --1.79%--__arm64_sys_ppoll
+                                  |          
+                                   --0.73%--fdget
+
+     9.35%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3074070
+            |
+            ---0xaaaab3074070
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               0xaaaab30730e4
+               |          
+               |--5.33%--0xaaaab30756d0
+               |          |          
+               |           --5.31%--0xaaaab30749d8
+               |                     |          
+               |                      --5.30%--__syscall_cancel
+               |                                |          
+               |                                 --5.30%--__internal_syscall_cancel
+               |                                           |          
+               |                                            --5.13%--el0t_64_sync
+               |                                                      el0t_64_sync_handler
+               |                                                      |          
+               |                                                       --5.06%--el0_svc
+               |                                                                 |          
+               |                                                                  --5.05%--do_el0_svc
+               |                                                                            |          
+               |                                                                             --5.02%--__arm64_sys_read
+               |                                                                                       |          
+               |                                                                                        --4.94%--anon_pipe_read
+               |                                                                                                  |          
+               |                                                                                                  |--2.15%--__wake_up_sync_key
+               |                                                                                                  |          
+               |                                                                                                  |--1.28%--mutex_lock
+               |                                                                                                  |          |          
+               |                                                                                                  |           --1.28%--__mutex_lock_slowpath
+               |                                                                                                  |                     |          
+               |                                                                                                  |                      --1.25%--mutex_spin_on_owner
+               |                                                                                                  |          
+               |                                                                                                   --1.26%--__arch_copy_to_user
+               |          
+               |--2.67%--0xaaaab307543c
+               |          |          
+               |           --2.63%--0xaaaab3075104
+               |                     __syscall_cancel
+               |                     |          
+               |                      --2.62%--__internal_syscall_cancel
+               |                                |          
+               |                                 --2.48%--el0t_64_sync
+               |                                           el0t_64_sync_handler
+               |                                           |          
+               |                                            --2.39%--el0_svc
+               |                                                      |          
+               |                                                       --2.13%--do_el0_svc
+               |                                                                 |          
+               |                                                                  --2.10%--__arm64_sys_write
+               |                                                                            |          
+               |                                                                             --2.03%--sock_write_iter
+               |                                                                                       |          
+               |                                                                                        --2.03%--inet_sendmsg
+               |                                                                                                  |          
+               |                                                                                                   --2.01%--tcp_sendmsg
+               |                                                                                                             |          
+               |                                                                                                              --1.00%--__arch_copy_from_user
+               |          
+                --1.29%--0xaaaab307533c
+                          |          
+                           --1.28%--__poll
+                                     |          
+                                      --1.28%--__syscall_cancel
+                                                |          
+                                                 --1.27%--__internal_syscall_cancel
+                                                           |          
+                                                            --0.98%--el0t_64_sync
+                                                                      el0t_64_sync_handler
+                                                                      |          
+                                                                       --0.81%--el0_svc
+                                                                                 |          
+                                                                                  --0.79%--do_el0_svc
+                                                                                            |          
+                                                                                             --0.75%--__arm64_sys_ppoll
+
+     9.35%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30730e4
+            |
+            ---0xaaaab30730e4
+               |          
+               |--5.33%--0xaaaab30756d0
+               |          |          
+               |           --5.31%--0xaaaab30749d8
+               |                     |          
+               |                      --5.30%--__syscall_cancel
+               |                                |          
+               |                                 --5.30%--__internal_syscall_cancel
+               |                                           |          
+               |                                            --5.13%--el0t_64_sync
+               |                                                      el0t_64_sync_handler
+               |                                                      |          
+               |                                                       --5.06%--el0_svc
+               |                                                                 |          
+               |                                                                  --5.05%--do_el0_svc
+               |                                                                            |          
+               |                                                                             --5.02%--__arm64_sys_read
+               |                                                                                       |          
+               |                                                                                        --4.94%--anon_pipe_read
+               |                                                                                                  |          
+               |                                                                                                  |--2.15%--__wake_up_sync_key
+               |                                                                                                  |          
+               |                                                                                                  |--1.28%--mutex_lock
+               |                                                                                                  |          |          
+               |                                                                                                  |           --1.28%--__mutex_lock_slowpath
+               |                                                                                                  |                     |          
+               |                                                                                                  |                      --1.25%--mutex_spin_on_owner
+               |                                                                                                  |          
+               |                                                                                                   --1.26%--__arch_copy_to_user
+               |          
+               |--2.67%--0xaaaab307543c
+               |          |          
+               |           --2.63%--0xaaaab3075104
+               |                     __syscall_cancel
+               |                     |          
+               |                      --2.62%--__internal_syscall_cancel
+               |                                |          
+               |                                 --2.48%--el0t_64_sync
+               |                                           el0t_64_sync_handler
+               |                                           |          
+               |                                            --2.39%--el0_svc
+               |                                                      |          
+               |                                                       --2.13%--do_el0_svc
+               |                                                                 |          
+               |                                                                  --2.10%--__arm64_sys_write
+               |                                                                            |          
+               |                                                                             --2.03%--sock_write_iter
+               |                                                                                       |          
+               |                                                                                        --2.03%--inet_sendmsg
+               |                                                                                                  |          
+               |                                                                                                   --2.01%--tcp_sendmsg
+               |                                                                                                             |          
+               |                                                                                                              --1.00%--__arch_copy_from_user
+               |          
+                --1.29%--0xaaaab307533c
+                          |          
+                           --1.28%--__poll
+                                     |          
+                                      --1.28%--__syscall_cancel
+                                                |          
+                                                 --1.27%--__internal_syscall_cancel
+                                                           |          
+                                                            --0.98%--el0t_64_sync
+                                                                      el0t_64_sync_handler
+                                                                      |          
+                                                                       --0.81%--el0_svc
+                                                                                 |          
+                                                                                  --0.79%--do_el0_svc
+                                                                                            |          
+                                                                                             --0.75%--__arm64_sys_ppoll
+
+     6.66%     0.04%  nc       [kernel.kallsyms]  [k] __arm64_sys_read
+            |          
+             --6.62%--__arm64_sys_read
+                       |          
+                       |--4.94%--anon_pipe_read
+                       |          |          
+                       |          |--2.15%--__wake_up_sync_key
+                       |          |          
+                       |          |--1.28%--mutex_lock
+                       |          |          |          
+                       |          |           --1.28%--__mutex_lock_slowpath
+                       |          |                     |          
+                       |          |                      --1.25%--mutex_spin_on_owner
+                       |          |          
+                       |           --1.26%--__arch_copy_to_user
+                       |          
+                        --1.57%--sock_read_iter
+                                  |          
+                                   --1.56%--inet_recvmsg
+                                             |          
+                                              --1.56%--tcp_recvmsg
+                                                        |          
+                                                        |--0.85%--skb_copy_datagram_iter
+                                                        |          |          
+                                                        |           --0.85%--__skb_datagram_iter
+                                                        |                     |          
+                                                        |                      --0.82%--__arch_copy_to_user
+                                                        |          
+                                                         --0.56%--tcp_send_ack
+                                                                   |          
+                                                                    --0.55%--__tcp_transmit_skb
+
+     5.33%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30756d0
+            |
+            ---0xaaaab30756d0
+               |          
+                --5.31%--0xaaaab30749d8
+                          |          
+                           --5.30%--__syscall_cancel
+                                     |          
+                                      --5.30%--__internal_syscall_cancel
+                                                |          
+                                                 --5.13%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --5.06%--el0_svc
+                                                                      |          
+                                                                       --5.05%--do_el0_svc
+                                                                                 |          
+                                                                                  --5.02%--__arm64_sys_read
+                                                                                            |          
+                                                                                             --4.94%--anon_pipe_read
+                                                                                                       |          
+                                                                                                       |--2.15%--__wake_up_sync_key
+                                                                                                       |          
+                                                                                                       |--1.28%--mutex_lock
+                                                                                                       |          |          
+                                                                                                       |           --1.28%--__mutex_lock_slowpath
+                                                                                                       |                     |          
+                                                                                                       |                      --1.25%--mutex_spin_on_owner
+                                                                                                       |          
+                                                                                                        --1.26%--__arch_copy_to_user
+
+     5.31%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30749d8
+            |
+            ---0xaaaab30749d8
+               |          
+                --5.30%--__syscall_cancel
+                          |          
+                           --5.30%--__internal_syscall_cancel
+                                     |          
+                                      --5.13%--el0t_64_sync
+                                                el0t_64_sync_handler
+                                                |          
+                                                 --5.06%--el0_svc
+                                                           |          
+                                                            --5.05%--do_el0_svc
+                                                                      |          
+                                                                       --5.02%--__arm64_sys_read
+                                                                                 |          
+                                                                                  --4.94%--anon_pipe_read
+                                                                                            |          
+                                                                                            |--2.15%--__wake_up_sync_key
+                                                                                            |          
+                                                                                            |--1.28%--mutex_lock
+                                                                                            |          |          
+                                                                                            |           --1.28%--__mutex_lock_slowpath
+                                                                                            |                     |          
+                                                                                            |                      --1.25%--mutex_spin_on_owner
+                                                                                            |          
+                                                                                             --1.26%--__arch_copy_to_user
+
+     5.27%     0.00%  dd       dd                 [.] 0x0000aaaae78d3d30
+            |
+            ---0xaaaae78d3d30
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+               |--3.66%--0xaaaae78d31ac
+               |          |          
+               |           --3.66%--0xaaaae78d92b0
+               |                     |          
+               |                      --3.65%--__syscall_cancel
+               |                                |          
+               |                                 --3.63%--__internal_syscall_cancel
+               |                                           |          
+               |                                            --3.62%--el0t_64_sync
+               |                                                      el0t_64_sync_handler
+               |                                                      el0_svc
+               |                                                      do_el0_svc
+               |                                                      __arm64_sys_write
+               |                                                      |          
+               |                                                       --3.59%--anon_pipe_write
+               |                                                                 |          
+               |                                                                  --2.67%--__arch_copy_from_user
+               |          
+                --1.61%--0xaaaae78d3094
+                          |          
+                           --1.61%--0xaaaae78d85d8
+                                     __syscall_cancel
+                                     |          
+                                      --1.61%--__internal_syscall_cancel
+                                                |          
+                                                 --1.60%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --1.60%--el0_svc
+                                                                      do_el0_svc
+                                                                      |          
+                                                                       --1.60%--__arm64_sys_read
+                                                                                 |          
+                                                                                  --1.57%--__arch_clear_user
+
+     5.27%     0.00%  dd       libc.so.6          [.] __libc_start_main@@GLIBC_2.34
+            |
+            ---__libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+               |--3.66%--0xaaaae78d31ac
+               |          |          
+               |           --3.66%--0xaaaae78d92b0
+               |                     |          
+               |                      --3.65%--__syscall_cancel
+               |                                |          
+               |                                 --3.63%--__internal_syscall_cancel
+               |                                           |          
+               |                                            --3.62%--el0t_64_sync
+               |                                                      el0t_64_sync_handler
+               |                                                      el0_svc
+               |                                                      do_el0_svc
+               |                                                      __arm64_sys_write
+               |                                                      |          
+               |                                                       --3.59%--anon_pipe_write
+               |                                                                 |          
+               |                                                                  --2.67%--__arch_copy_from_user
+               |          
+                --1.61%--0xaaaae78d3094
+                          |          
+                           --1.61%--0xaaaae78d85d8
+                                     __syscall_cancel
+                                     |          
+                                      --1.61%--__internal_syscall_cancel
+                                                |          
+                                                 --1.60%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --1.60%--el0_svc
+                                                                      do_el0_svc
+                                                                      |          
+                                                                       --1.60%--__arm64_sys_read
+                                                                                 |          
+                                                                                  --1.57%--__arch_clear_user
+
+     5.27%     0.00%  dd       libc.so.6          [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               |          
+               |--3.66%--0xaaaae78d31ac
+               |          |          
+               |           --3.66%--0xaaaae78d92b0
+               |                     |          
+               |                      --3.65%--__syscall_cancel
+               |                                |          
+               |                                 --3.63%--__internal_syscall_cancel
+               |                                           |          
+               |                                            --3.62%--el0t_64_sync
+               |                                                      el0t_64_sync_handler
+               |                                                      el0_svc
+               |                                                      do_el0_svc
+               |                                                      __arm64_sys_write
+               |                                                      |          
+               |                                                       --3.59%--anon_pipe_write
+               |                                                                 |          
+               |                                                                  --2.67%--__arch_copy_from_user
+               |          
+                --1.61%--0xaaaae78d3094
+                          |          
+                           --1.61%--0xaaaae78d85d8
+                                     __syscall_cancel
+                                     |          
+                                      --1.61%--__internal_syscall_cancel
+                                                |          
+                                                 --1.60%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --1.60%--el0_svc
+                                                                      do_el0_svc
+                                                                      |          
+                                                                       --1.60%--__arm64_sys_read
+                                                                                 |          
+                                                                                  --1.57%--__arch_clear_user
+
+     5.25%     0.02%  dd       libc.so.6          [.] __syscall_cancel
+            |          
+             --5.24%--__syscall_cancel
+                       __internal_syscall_cancel
+                       |          
+                        --5.23%--el0t_64_sync
+                                  el0t_64_sync_handler
+                                  |          
+                                   --5.22%--el0_svc
+                                             do_el0_svc
+                                             |          
+                                             |--3.62%--__arm64_sys_write
+                                             |          |          
+                                             |           --3.59%--anon_pipe_write
+                                             |                     |          
+                                             |                      --2.67%--__arch_copy_from_user
+                                             |          
+                                              --1.60%--__arm64_sys_read
+                                                        |          
+                                                         --1.57%--__arch_clear_user
+
+     5.24%     0.01%  dd       libc.so.6          [.] __internal_syscall_cancel
+            |          
+             --5.23%--__internal_syscall_cancel
+                       el0t_64_sync
+                       el0t_64_sync_handler
+                       |          
+                        --5.22%--el0_svc
+                                  do_el0_svc
+                                  |          
+                                  |--3.62%--__arm64_sys_write
+                                  |          |          
+                                  |           --3.59%--anon_pipe_write
+                                  |                     |          
+                                  |                      --2.67%--__arch_copy_from_user
+                                  |          
+                                   --1.60%--__arm64_sys_read
+                                             |          
+                                              --1.57%--__arch_clear_user
+
+     5.23%     0.00%  dd       [kernel.kallsyms]  [k] el0t_64_sync
+            |
+            ---el0t_64_sync
+               el0t_64_sync_handler
+               |          
+                --5.22%--el0_svc
+                          do_el0_svc
+                          |          
+                          |--3.62%--__arm64_sys_write
+                          |          |          
+                          |           --3.59%--anon_pipe_write
+                          |                     |          
+                          |                      --2.67%--__arch_copy_from_user
+                          |          
+                           --1.60%--__arm64_sys_read
+                                     |          
+                                      --1.57%--__arch_clear_user
+
+     5.23%     0.00%  dd       [kernel.kallsyms]  [k] el0t_64_sync_handler
+            |
+            ---el0t_64_sync_handler
+               |          
+                --5.22%--el0_svc
+                          do_el0_svc
+                          |          
+                          |--3.62%--__arm64_sys_write
+                          |          |          
+                          |           --3.59%--anon_pipe_write
+                          |                     |          
+                          |                      --2.67%--__arch_copy_from_user
+                          |          
+                           --1.60%--__arm64_sys_read
+                                     |          
+                                      --1.57%--__arch_clear_user
+
+     5.22%     0.00%  dd       [kernel.kallsyms]  [k] el0_svc
+            |
+            ---el0_svc
+               do_el0_svc
+               |          
+               |--3.62%--__arm64_sys_write
+               |          |          
+               |           --3.59%--anon_pipe_write
+               |                     |          
+               |                      --2.67%--__arch_copy_from_user
+               |          
+                --1.60%--__arm64_sys_read
+                          |          
+                           --1.57%--__arch_clear_user
+
+     5.22%     0.00%  dd       [kernel.kallsyms]  [k] do_el0_svc
+            |
+            ---do_el0_svc
+               |          
+               |--3.62%--__arm64_sys_write
+               |          |          
+               |           --3.59%--anon_pipe_write
+               |                     |          
+               |                      --2.67%--__arch_copy_from_user
+               |          
+                --1.60%--__arm64_sys_read
+                          |          
+                           --1.57%--__arch_clear_user
+
+     4.94%     0.08%  nc       [kernel.kallsyms]  [k] anon_pipe_read
+            |          
+             --4.86%--anon_pipe_read
+                       |          
+                       |--2.15%--__wake_up_sync_key
+                       |          
+                       |--1.28%--mutex_lock
+                       |          |          
+                       |           --1.28%--__mutex_lock_slowpath
+                       |                     |          
+                       |                      --1.25%--mutex_spin_on_owner
+                       |          
+                        --1.26%--__arch_copy_to_user
+
+     3.91%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8544070
+            |
+            ---0xaaaad8544070
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               0xaaaad8542e18
+               |          
+               |--1.89%--0xaaaad8545650
+               |          |          
+               |           --1.89%--0xaaaad85449d8
+               |                     __syscall_cancel
+               |                     |          
+               |                      --1.88%--__internal_syscall_cancel
+               |                                |          
+               |                                 --1.74%--el0t_64_sync
+               |                                           el0t_64_sync_handler
+               |                                           |          
+               |                                            --1.65%--el0_svc
+               |                                                      |          
+               |                                                       --1.65%--do_el0_svc
+               |                                                                 |          
+               |                                                                  --1.63%--__arm64_sys_read
+               |                                                                            |          
+               |                                                                             --1.57%--sock_read_iter
+               |                                                                                       |          
+               |                                                                                        --1.56%--inet_recvmsg
+               |                                                                                                  |          
+               |                                                                                                   --1.56%--tcp_recvmsg
+               |                                                                                                             |          
+               |                                                                                                             |--0.85%--skb_copy_datagram_iter
+               |                                                                                                             |          |          
+               |                                                                                                             |           --0.85%--__skb_datagram_iter
+               |                                                                                                             |                     |          
+               |                                                                                                             |                      --0.82%--__arch_copy_to_user
+               |                                                                                                             |          
+               |                                                                                                              --0.56%--tcp_send_ack
+               |                                                                                                                        |          
+               |                                                                                                                         --0.55%--__tcp_transmit_skb
+               |          
+                --1.65%--0xaaaad854533c
+                          |          
+                           --1.63%--__poll
+                                     |          
+                                      --1.62%--__syscall_cancel
+                                                __internal_syscall_cancel
+                                                |          
+                                                 --1.33%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --1.16%--el0_svc
+                                                                      |          
+                                                                       --1.15%--do_el0_svc
+                                                                                 |          
+                                                                                  --1.05%--__arm64_sys_ppoll
+
+     3.91%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8542e18
+            |
+            ---0xaaaad8542e18
+               |          
+               |--1.89%--0xaaaad8545650
+               |          |          
+               |           --1.89%--0xaaaad85449d8
+               |                     __syscall_cancel
+               |                     |          
+               |                      --1.88%--__internal_syscall_cancel
+               |                                |          
+               |                                 --1.74%--el0t_64_sync
+               |                                           el0t_64_sync_handler
+               |                                           |          
+               |                                            --1.65%--el0_svc
+               |                                                      |          
+               |                                                       --1.65%--do_el0_svc
+               |                                                                 |          
+               |                                                                  --1.63%--__arm64_sys_read
+               |                                                                            |          
+               |                                                                             --1.57%--sock_read_iter
+               |                                                                                       |          
+               |                                                                                        --1.56%--inet_recvmsg
+               |                                                                                                  |          
+               |                                                                                                   --1.56%--tcp_recvmsg
+               |                                                                                                             |          
+               |                                                                                                             |--0.85%--skb_copy_datagram_iter
+               |                                                                                                             |          |          
+               |                                                                                                             |           --0.85%--__skb_datagram_iter
+               |                                                                                                             |                     |          
+               |                                                                                                             |                      --0.82%--__arch_copy_to_user
+               |                                                                                                             |          
+               |                                                                                                              --0.56%--tcp_send_ack
+               |                                                                                                                        |          
+               |                                                                                                                         --0.55%--__tcp_transmit_skb
+               |          
+                --1.65%--0xaaaad854533c
+                          |          
+                           --1.63%--__poll
+                                     |          
+                                      --1.62%--__syscall_cancel
+                                                __internal_syscall_cancel
+                                                |          
+                                                 --1.33%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --1.16%--el0_svc
+                                                                      |          
+                                                                       --1.15%--do_el0_svc
+                                                                                 |          
+                                                                                  --1.05%--__arm64_sys_ppoll
+
+     3.66%     0.00%  dd       dd                 [.] 0x0000aaaae78d31ac
+            |
+            ---0xaaaae78d31ac
+               |          
+                --3.66%--0xaaaae78d92b0
+                          |          
+                           --3.65%--__syscall_cancel
+                                     |          
+                                      --3.63%--__internal_syscall_cancel
+                                                |          
+                                                 --3.62%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           el0_svc
+                                                           do_el0_svc
+                                                           __arm64_sys_write
+                                                           |          
+                                                            --3.59%--anon_pipe_write
+                                                                      |          
+                                                                       --2.67%--__arch_copy_from_user
+
+     3.66%     0.00%  dd       dd                 [.] 0x0000aaaae78d92b0
+            |
+            ---0xaaaae78d92b0
+               |          
+                --3.65%--__syscall_cancel
+                          |          
+                           --3.63%--__internal_syscall_cancel
+                                     |          
+                                      --3.62%--el0t_64_sync
+                                                el0t_64_sync_handler
+                                                el0_svc
+                                                do_el0_svc
+                                                __arm64_sys_write
+                                                |          
+                                                 --3.59%--anon_pipe_write
+                                                           |          
+                                                            --2.67%--__arch_copy_from_user
+
+     3.62%     0.00%  dd       [kernel.kallsyms]  [k] __arm64_sys_write
+            |
+            ---__arm64_sys_write
+               |          
+                --3.59%--anon_pipe_write
+                          |          
+                           --2.67%--__arch_copy_from_user
+
+     3.59%     0.11%  dd       [kernel.kallsyms]  [k] anon_pipe_write
+            |          
+             --3.48%--anon_pipe_write
+                       |          
+                        --2.67%--__arch_copy_from_user
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] el1h_64_irq
+            |
+            ---el1h_64_irq
+               el1h_64_irq_handler
+               el1_interrupt
+               irq_exit_rcu
+               do_softirq_own_stack
+               call_on_irq_stack
+               ____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] el1h_64_irq_handler
+            |
+            ---el1h_64_irq_handler
+               el1_interrupt
+               irq_exit_rcu
+               do_softirq_own_stack
+               call_on_irq_stack
+               ____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] el1_interrupt
+            |
+            ---el1_interrupt
+               irq_exit_rcu
+               do_softirq_own_stack
+               call_on_irq_stack
+               ____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] irq_exit_rcu
+            |
+            ---irq_exit_rcu
+               do_softirq_own_stack
+               call_on_irq_stack
+               ____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] do_softirq_own_stack
+            |
+            ---do_softirq_own_stack
+               call_on_irq_stack
+               ____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] call_on_irq_stack
+            |
+            ---call_on_irq_stack
+               ____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.50%     0.00%  swapper  [kernel.kallsyms]  [k] ____do_softirq
+            |
+            ---____do_softirq
+               |          
+                --3.12%--__do_softirq
+
+     3.12%     2.98%  swapper  [kernel.kallsyms]  [k] __do_softirq
+            |          
+            |--1.56%--__primary_switched
+            |          start_kernel
+            |          rest_init
+            |          cpu_startup_entry
+            |          |          
+            |           --1.28%--el1h_64_irq
+            |                     el1h_64_irq_handler
+            |                     el1_interrupt
+            |                     irq_exit_rcu
+            |                     do_softirq_own_stack
+            |                     call_on_irq_stack
+            |                     ____do_softirq
+            |                     __do_softirq
+            |          
+             --1.42%--__secondary_switched
+                       secondary_start_kernel
+                       cpu_startup_entry
+                       |          
+                        --1.39%--el1h_64_irq
+                                  el1h_64_irq_handler
+                                  el1_interrupt
+                                  irq_exit_rcu
+                                  do_softirq_own_stack
+                                  call_on_irq_stack
+                                  ____do_softirq
+                                  __do_softirq
+
+     2.91%     0.02%  nc       libc.so.6          [.] __poll
+            |          
+             --2.90%--__poll
+                       __syscall_cancel
+                       |          
+                        --2.89%--__internal_syscall_cancel
+                                  |          
+                                   --2.31%--el0t_64_sync
+                                             el0t_64_sync_handler
+                                             |          
+                                              --1.97%--el0_svc
+                                                        |          
+                                                         --1.94%--do_el0_svc
+                                                                   |          
+                                                                    --1.79%--__arm64_sys_ppoll
+                                                                              |          
+                                                                               --0.73%--fdget
+
+     2.67%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab307543c
+            |
+            ---0xaaaab307543c
+               |          
+                --2.63%--0xaaaab3075104
+                          __syscall_cancel
+                          |          
+                           --2.62%--__internal_syscall_cancel
+                                     |          
+                                      --2.48%--el0t_64_sync
+                                                el0t_64_sync_handler
+                                                |          
+                                                 --2.39%--el0_svc
+                                                           |          
+                                                            --2.13%--do_el0_svc
+                                                                      |          
+                                                                       --2.10%--__arm64_sys_write
+                                                                                 |          
+                                                                                  --2.03%--sock_write_iter
+                                                                                            |          
+                                                                                             --2.03%--inet_sendmsg
+                                                                                                       |          
+                                                                                                        --2.01%--tcp_sendmsg
+                                                                                                                  |          
+                                                                                                                   --1.00%--__arch_copy_from_user
+
+     2.67%     2.67%  dd       [kernel.kallsyms]  [k] __arch_copy_from_user
+            |
+            ---0xaaaae78d3d30
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               0xaaaae78d31ac
+               0xaaaae78d92b0
+               __syscall_cancel
+               __internal_syscall_cancel
+               el0t_64_sync
+               el0t_64_sync_handler
+               el0_svc
+               do_el0_svc
+               __arm64_sys_write
+               anon_pipe_write
+               __arch_copy_from_user
+
+     2.63%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075104
+            |
+            ---0xaaaab3075104
+               __syscall_cancel
+               |          
+                --2.62%--__internal_syscall_cancel
+                          |          
+                           --2.48%--el0t_64_sync
+                                     el0t_64_sync_handler
+                                     |          
+                                      --2.39%--el0_svc
+                                                |          
+                                                 --2.13%--do_el0_svc
+                                                           |          
+                                                            --2.10%--__arm64_sys_write
+                                                                      |          
+                                                                       --2.03%--sock_write_iter
+                                                                                 |          
+                                                                                  --2.03%--inet_sendmsg
+                                                                                            |          
+                                                                                             --2.01%--tcp_sendmsg
+                                                                                                       |          
+                                                                                                        --1.00%--__arch_copy_from_user
+
+     2.38%     2.25%  nc       [kernel.kallsyms]  [k] __wake_up_sync_key
+            |          
+             --2.25%--0xaaaab3074070
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       0xaaaab30730e4
+                       |          
+                        --2.02%--0xaaaab30756d0
+                                  0xaaaab30749d8
+                                  __syscall_cancel
+                                  __internal_syscall_cancel
+                                  el0t_64_sync
+                                  el0t_64_sync_handler
+                                  el0_svc
+                                  do_el0_svc
+                                  __arm64_sys_read
+                                  anon_pipe_read
+                                  __wake_up_sync_key
+
+     2.16%     0.03%  nc       [kernel.kallsyms]  [k] __arm64_sys_write
+            |          
+             --2.13%--__arm64_sys_write
+                       |          
+                        --2.03%--sock_write_iter
+                                  |          
+                                   --2.03%--inet_sendmsg
+                                             |          
+                                              --2.01%--tcp_sendmsg
+                                                        |          
+                                                         --1.00%--__arch_copy_from_user
+
+     2.08%     2.08%  nc       [kernel.kallsyms]  [k] __arch_copy_to_user
+            |          
+            |--1.26%--0xaaaab3074070
+            |          __libc_start_main@@GLIBC_2.34
+            |          __libc_start_call_main
+            |          0xaaaab30730e4
+            |          0xaaaab30756d0
+            |          0xaaaab30749d8
+            |          __syscall_cancel
+            |          __internal_syscall_cancel
+            |          el0t_64_sync
+            |          el0t_64_sync_handler
+            |          el0_svc
+            |          do_el0_svc
+            |          __arm64_sys_read
+            |          anon_pipe_read
+            |          __arch_copy_to_user
+            |          
+             --0.82%--0xaaaad8544070
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       0xaaaad8542e18
+                       0xaaaad8545650
+                       0xaaaad85449d8
+                       __syscall_cancel
+                       __internal_syscall_cancel
+                       el0t_64_sync
+                       el0t_64_sync_handler
+                       el0_svc
+                       do_el0_svc
+                       __arm64_sys_read
+                       sock_read_iter
+                       inet_recvmsg
+                       tcp_recvmsg
+                       skb_copy_datagram_iter
+                       __skb_datagram_iter
+                       __arch_copy_to_user
+
+     2.03%     0.01%  nc       [kernel.kallsyms]  [k] sock_write_iter
+            |          
+             --2.03%--sock_write_iter
+                       inet_sendmsg
+                       |          
+                        --2.01%--tcp_sendmsg
+                                  |          
+                                   --1.00%--__arch_copy_from_user
+
+     2.03%     0.00%  nc       [kernel.kallsyms]  [k] inet_sendmsg
+            |
+            ---inet_sendmsg
+               |          
+                --2.01%--tcp_sendmsg
+                          |          
+                           --1.00%--__arch_copy_from_user
+
+     2.01%     0.13%  nc       [kernel.kallsyms]  [k] tcp_sendmsg
+            |          
+             --1.88%--tcp_sendmsg
+                       |          
+                        --1.00%--__arch_copy_from_user
+
+     1.89%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545650
+            |
+            ---0xaaaad8545650
+               |          
+                --1.89%--0xaaaad85449d8
+                          __syscall_cancel
+                          |          
+                           --1.88%--__internal_syscall_cancel
+                                     |          
+                                      --1.74%--el0t_64_sync
+                                                el0t_64_sync_handler
+                                                |          
+                                                 --1.65%--el0_svc
+                                                           |          
+                                                            --1.65%--do_el0_svc
+                                                                      |          
+                                                                       --1.63%--__arm64_sys_read
+                                                                                 |          
+                                                                                  --1.57%--sock_read_iter
+                                                                                            |          
+                                                                                             --1.56%--inet_recvmsg
+                                                                                                       |          
+                                                                                                        --1.56%--tcp_recvmsg
+                                                                                                                  |          
+                                                                                                                  |--0.85%--skb_copy_datagram_iter
+                                                                                                                  |          |          
+                                                                                                                  |           --0.85%--__skb_datagram_iter
+                                                                                                                  |                     |          
+                                                                                                                  |                      --0.82%--__arch_copy_to_user
+                                                                                                                  |          
+                                                                                                                   --0.56%--tcp_send_ack
+                                                                                                                             |          
+                                                                                                                              --0.55%--__tcp_transmit_skb
+
+     1.89%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad85449d8
+            |
+            ---0xaaaad85449d8
+               __syscall_cancel
+               |          
+                --1.88%--__internal_syscall_cancel
+                          |          
+                           --1.74%--el0t_64_sync
+                                     el0t_64_sync_handler
+                                     |          
+                                      --1.65%--el0_svc
+                                                |          
+                                                 --1.65%--do_el0_svc
+                                                           |          
+                                                            --1.63%--__arm64_sys_read
+                                                                      |          
+                                                                       --1.57%--sock_read_iter
+                                                                                 |          
+                                                                                  --1.56%--inet_recvmsg
+                                                                                            |          
+                                                                                             --1.56%--tcp_recvmsg
+                                                                                                       |          
+                                                                                                       |--0.85%--skb_copy_datagram_iter
+                                                                                                       |          |          
+                                                                                                       |           --0.85%--__skb_datagram_iter
+                                                                                                       |                     |          
+                                                                                                       |                      --0.82%--__arch_copy_to_user
+                                                                                                       |          
+                                                                                                        --0.56%--tcp_send_ack
+                                                                                                                  |          
+                                                                                                                   --0.55%--__tcp_transmit_skb
+
+     1.79%     0.12%  nc       [kernel.kallsyms]  [k] __arm64_sys_ppoll
+            |          
+             --1.67%--__arm64_sys_ppoll
+                       |          
+                        --0.73%--fdget
+
+     1.65%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad854533c
+            |
+            ---0xaaaad854533c
+               |          
+                --1.63%--__poll
+                          |          
+                           --1.62%--__syscall_cancel
+                                     __internal_syscall_cancel
+                                     |          
+                                      --1.33%--el0t_64_sync
+                                                el0t_64_sync_handler
+                                                |          
+                                                 --1.16%--el0_svc
+                                                           |          
+                                                            --1.15%--do_el0_svc
+                                                                      |          
+                                                                       --1.05%--__arm64_sys_ppoll
+
+     1.61%     0.00%  dd       dd                 [.] 0x0000aaaae78d3094
+            |
+            ---0xaaaae78d3094
+               |          
+                --1.61%--0xaaaae78d85d8
+                          __syscall_cancel
+                          |          
+                           --1.61%--__internal_syscall_cancel
+                                     |          
+                                      --1.60%--el0t_64_sync
+                                                el0t_64_sync_handler
+                                                |          
+                                                 --1.60%--el0_svc
+                                                           do_el0_svc
+                                                           |          
+                                                            --1.60%--__arm64_sys_read
+                                                                      |          
+                                                                       --1.57%--__arch_clear_user
+
+     1.61%     0.00%  dd       dd                 [.] 0x0000aaaae78d85d8
+            |
+            ---0xaaaae78d85d8
+               __syscall_cancel
+               |          
+                --1.61%--__internal_syscall_cancel
+                          |          
+                           --1.60%--el0t_64_sync
+                                     el0t_64_sync_handler
+                                     |          
+                                      --1.60%--el0_svc
+                                                do_el0_svc
+                                                |          
+                                                 --1.60%--__arm64_sys_read
+                                                           |          
+                                                            --1.57%--__arch_clear_user
+
+     1.60%     0.00%  dd       [kernel.kallsyms]  [k] __arm64_sys_read
+            |
+            ---__arm64_sys_read
+               |          
+                --1.57%--__arch_clear_user
+
+     1.57%     1.57%  dd       [kernel.kallsyms]  [k] __arch_clear_user
+            |
+            ---0xaaaae78d3d30
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               0xaaaae78d3094
+               0xaaaae78d85d8
+               __syscall_cancel
+               __internal_syscall_cancel
+               el0t_64_sync
+               el0t_64_sync_handler
+               el0_svc
+               do_el0_svc
+               __arm64_sys_read
+               __arch_clear_user
+
+     1.57%     0.00%  nc       [kernel.kallsyms]  [k] sock_read_iter
+            |          
+             --1.56%--sock_read_iter
+                       |          
+                        --1.56%--inet_recvmsg
+                                  |          
+                                   --1.56%--tcp_recvmsg
+                                             |          
+                                             |--0.85%--skb_copy_datagram_iter
+                                             |          |          
+                                             |           --0.85%--__skb_datagram_iter
+                                             |                     |          
+                                             |                      --0.82%--__arch_copy_to_user
+                                             |          
+                                              --0.56%--tcp_send_ack
+                                                        |          
+                                                         --0.55%--__tcp_transmit_skb
+
+     1.56%     0.00%  nc       [kernel.kallsyms]  [k] inet_recvmsg
+            |
+            ---inet_recvmsg
+               |          
+                --1.56%--tcp_recvmsg
+                          |          
+                          |--0.85%--skb_copy_datagram_iter
+                          |          |          
+                          |           --0.85%--__skb_datagram_iter
+                          |                     |          
+                          |                      --0.82%--__arch_copy_to_user
+                          |          
+                           --0.56%--tcp_send_ack
+                                     |          
+                                      --0.55%--__tcp_transmit_skb
+
+     1.56%     0.02%  nc       [kernel.kallsyms]  [k] tcp_recvmsg
+            |          
+             --1.54%--tcp_recvmsg
+                       |          
+                       |--0.85%--skb_copy_datagram_iter
+                       |          |          
+                       |           --0.85%--__skb_datagram_iter
+                       |                     |          
+                       |                      --0.82%--__arch_copy_to_user
+                       |          
+                        --0.56%--tcp_send_ack
+                                  |          
+                                   --0.55%--__tcp_transmit_skb
+
+     1.29%     0.02%  nc       [kernel.kallsyms]  [k] mutex_lock
+            |          
+             --1.28%--mutex_lock
+                       |          
+                        --1.28%--__mutex_lock_slowpath
+                                  |          
+                                   --1.25%--mutex_spin_on_owner
+
+     1.29%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab307533c
+            |
+            ---0xaaaab307533c
+               |          
+                --1.28%--__poll
+                          |          
+                           --1.28%--__syscall_cancel
+                                     |          
+                                      --1.27%--__internal_syscall_cancel
+                                                |          
+                                                 --0.98%--el0t_64_sync
+                                                           el0t_64_sync_handler
+                                                           |          
+                                                            --0.81%--el0_svc
+                                                                      |          
+                                                                       --0.79%--do_el0_svc
+                                                                                 |          
+                                                                                  --0.75%--__arm64_sys_ppoll
+
+     1.28%     0.00%  nc       [kernel.kallsyms]  [k] __mutex_lock_slowpath
+            |
+            ---__mutex_lock_slowpath
+               |          
+                --1.25%--mutex_spin_on_owner
+
+     1.25%     1.25%  nc       [kernel.kallsyms]  [k] mutex_spin_on_owner
+            |
+            ---0xaaaab3074070
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               0xaaaab30730e4
+               0xaaaab30756d0
+               0xaaaab30749d8
+               __syscall_cancel
+               __internal_syscall_cancel
+               el0t_64_sync
+               el0t_64_sync_handler
+               el0_svc
+               do_el0_svc
+               __arm64_sys_read
+               anon_pipe_read
+               mutex_lock
+               __mutex_lock_slowpath
+               mutex_spin_on_owner
+
+     1.16%     0.07%  nc       [kernel.kallsyms]  [k] __tcp_transmit_skb
+            |          
+             --1.09%--__tcp_transmit_skb
+                       |          
+                        --1.08%--ip_queue_xmit
+                                  |          
+                                   --0.91%--ip_output
+                                             |          
+                                              --0.87%--__dev_queue_xmit
+                                                        |          
+                                                         --0.81%--local_bh_enable
+                                                                   __local_bh_enable_ip
+                                                                   |          
+                                                                    --0.71%--do_softirq_own_stack
+                                                                              call_on_irq_stack
+                                                                              ____do_softirq
+                                                                              |          
+                                                                               --0.65%--__do_softirq
+                                                                                         |          
+                                                                                          --0.63%--net_rx_action
+                                                                                                    |          
+                                                                                                     --0.56%--ip_rcv
+
+     1.08%     0.02%  nc       [kernel.kallsyms]  [k] ip_queue_xmit
+            |          
+             --1.07%--ip_queue_xmit
+                       |          
+                        --0.90%--ip_output
+                                  |          
+                                   --0.87%--__dev_queue_xmit
+                                             |          
+                                              --0.81%--local_bh_enable
+                                                        __local_bh_enable_ip
+                                                        |          
+                                                         --0.70%--do_softirq_own_stack
+                                                                   call_on_irq_stack
+                                                                   ____do_softirq
+                                                                   |          
+                                                                    --0.65%--__do_softirq
+                                                                              |          
+                                                                               --0.62%--net_rx_action
+                                                                                         |          
+                                                                                          --0.56%--ip_rcv
+
+     1.01%     1.01%  nc       [kernel.kallsyms]  [k] __arch_copy_from_user
+            |          
+             --1.00%--0xaaaab3074070
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       0xaaaab30730e4
+                       |          
+                        --1.00%--0xaaaab307543c
+                                  0xaaaab3075104
+                                  __syscall_cancel
+                                  __internal_syscall_cancel
+                                  el0t_64_sync
+                                  el0t_64_sync_handler
+                                  el0_svc
+                                  do_el0_svc
+                                  __arm64_sys_write
+                                  sock_write_iter
+                                  inet_sendmsg
+                                  tcp_sendmsg
+                                  __arch_copy_from_user
+
+     0.91%     0.02%  nc       [kernel.kallsyms]  [k] ip_output
+            |          
+             --0.89%--ip_output
+                       |          
+                        --0.87%--__dev_queue_xmit
+                                  |          
+                                   --0.81%--local_bh_enable
+                                             __local_bh_enable_ip
+                                             |          
+                                              --0.71%--do_softirq_own_stack
+                                                        call_on_irq_stack
+                                                        ____do_softirq
+                                                        |          
+                                                         --0.65%--__do_softirq
+                                                                   |          
+                                                                    --0.63%--net_rx_action
+                                                                              |          
+                                                                               --0.56%--ip_rcv
+
+     0.87%     0.02%  nc       [kernel.kallsyms]  [k] __dev_queue_xmit
+            |          
+             --0.86%--__dev_queue_xmit
+                       |          
+                        --0.81%--local_bh_enable
+                                  __local_bh_enable_ip
+                                  |          
+                                   --0.70%--do_softirq_own_stack
+                                             call_on_irq_stack
+                                             ____do_softirq
+                                             |          
+                                              --0.65%--__do_softirq
+                                                        |          
+                                                         --0.62%--net_rx_action
+                                                                   |          
+                                                                    --0.56%--ip_rcv
+
+     0.85%     0.00%  nc       [kernel.kallsyms]  [k] skb_copy_datagram_iter
+            |          
+             --0.85%--skb_copy_datagram_iter
+                       __skb_datagram_iter
+                       |          
+                        --0.82%--__arch_copy_to_user
+
+     0.85%     0.02%  nc       [kernel.kallsyms]  [k] __skb_datagram_iter
+            |          
+             --0.83%--__skb_datagram_iter
+                       |          
+                        --0.82%--__arch_copy_to_user
+
+     0.82%     0.12%  nc       [kernel.kallsyms]  [k] __local_bh_enable_ip
+            |          
+             --0.71%--__local_bh_enable_ip
+                       do_softirq_own_stack
+                       call_on_irq_stack
+                       ____do_softirq
+                       |          
+                        --0.65%--__do_softirq
+                                  |          
+                                   --0.63%--net_rx_action
+                                             |          
+                                              --0.56%--ip_rcv
+
+     0.81%     0.00%  nc       [kernel.kallsyms]  [k] local_bh_enable
+            |
+            ---local_bh_enable
+               __local_bh_enable_ip
+               |          
+                --0.71%--do_softirq_own_stack
+                          call_on_irq_stack
+                          ____do_softirq
+                          |          
+                           --0.65%--__do_softirq
+                                     |          
+                                      --0.63%--net_rx_action
+                                                |          
+                                                 --0.56%--ip_rcv
+
+     0.80%     0.01%  nc       [kernel.kallsyms]  [k] tcp_write_xmit
+            |          
+             --0.79%--tcp_write_xmit
+                       |          
+                        --0.65%--__tcp_transmit_skb
+                                  |          
+                                   --0.62%--ip_queue_xmit
+                                             |          
+                                              --0.52%--ip_output
+                                                        |          
+                                                         --0.51%--__dev_queue_xmit
+
+     0.73%     0.73%  nc       [kernel.kallsyms]  [k] fdget
+     0.71%     0.00%  nc       [kernel.kallsyms]  [k] do_softirq_own_stack
+            |
+            ---do_softirq_own_stack
+               call_on_irq_stack
+               ____do_softirq
+               |          
+                --0.65%--__do_softirq
+                          |          
+                           --0.63%--net_rx_action
+                                     |          
+                                      --0.56%--ip_rcv
+
+     0.71%     0.00%  nc       [kernel.kallsyms]  [k] call_on_irq_stack
+            |
+            ---call_on_irq_stack
+               ____do_softirq
+               |          
+                --0.65%--__do_softirq
+                          |          
+                           --0.63%--net_rx_action
+                                     |          
+                                      --0.56%--ip_rcv
+
+     0.71%     0.00%  nc       [kernel.kallsyms]  [k] ____do_softirq
+            |
+            ---____do_softirq
+               |          
+                --0.65%--__do_softirq
+                          |          
+                           --0.63%--net_rx_action
+                                     |          
+                                      --0.56%--ip_rcv
+
+     0.68%     0.09%  nc       [kernel.kallsyms]  [k] net_rx_action
+            |          
+             --0.59%--net_rx_action
+                       |          
+                        --0.56%--ip_rcv
+
+     0.66%     0.66%  nc       [kernel.kallsyms]  [k] local_daif_restore
+     0.65%     0.02%  nc       [kernel.kallsyms]  [k] __do_softirq
+            |          
+             --0.64%--__do_softirq
+                       |          
+                        --0.63%--net_rx_action
+                                  |          
+                                   --0.56%--ip_rcv
+
+     0.58%     0.58%  swapper  [kernel.kallsyms]  [k] schedule_idle
+     0.56%     0.02%  nc       [kernel.kallsyms]  [k] ip_rcv
+            |          
+             --0.54%--ip_rcv
+
+     0.56%     0.00%  nc       [kernel.kallsyms]  [k] tcp_send_ack
+            |          
+             --0.55%--tcp_send_ack
+                       |          
+                        --0.55%--__tcp_transmit_skb
+
+     0.51%     0.51%  nc       [kernel.kallsyms]  [k] schedule
+     0.51%     0.00%  nc       [kernel.kallsyms]  [k] __tcp_push_pending_frames
+            |          
+             --0.51%--__tcp_push_pending_frames
+                       |          
+                        --0.50%--tcp_write_xmit
+
+     0.47%     0.02%  nc       [kernel.kallsyms]  [k] tcp_v4_rcv
+     0.46%     0.01%  nc       [kernel.kallsyms]  [k] tcp_v4_do_rcv
+     0.45%     0.01%  nc       [kernel.kallsyms]  [k] tcp_rcv_established
+     0.40%     0.35%  swapper  [kernel.kallsyms]  [k] sched_balance_softirq
+     0.33%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545548
+     0.30%     0.00%  nc       [kernel.kallsyms]  [k] tcp_push_one
+     0.30%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545104
+     0.29%     0.29%  nc       [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore
+     0.27%     0.01%  nc       [kernel.kallsyms]  [k] exit_to_user_mode_loop
+     0.27%     0.00%  nc       [kernel.kallsyms]  [k] schedule_hrtimeout_range
+     0.26%     0.26%  nc       [kernel.kallsyms]  [k] arch_counter_get_cntvct
+     0.26%     0.02%  nc       [kernel.kallsyms]  [k] tcp_data_queue
+     0.24%     0.24%  dd       [kernel.kallsyms]  [k] schedule
+     0.24%     0.02%  nc       [kernel.kallsyms]  [k] tty_poll
+     0.24%     0.00%  nc       [kernel.kallsyms]  [k] sock_def_readable
+     0.23%     0.17%  dd       [kernel.kallsyms]  [k] __alloc_pages_noprof
+     0.22%     0.01%  nc       [kernel.kallsyms]  [k] nf_hook_slow
+     0.21%     0.01%  nc       [kernel.kallsyms]  [k] ktime_get
+     0.20%     0.00%  ping     libc.so.6          [.] __libc_start_main@@GLIBC_2.34
+     0.20%     0.00%  ping     libc.so.6          [.] __libc_start_call_main
+     0.19%     0.04%  nc       [kernel.kallsyms]  [k] n_tty_poll
+     0.19%     0.00%  ping     libc.so.6          [.] __syscall_cancel
+     0.18%     0.01%  nc       [kernel.kallsyms]  [k] sock_poll
+     0.18%     0.01%  ping     libc.so.6          [.] __internal_syscall_cancel
+     0.18%     0.00%  ping     [kernel.kallsyms]  [k] el0t_64_sync
+     0.18%     0.00%  ping     [kernel.kallsyms]  [k] el0t_64_sync_handler
+     0.18%     0.00%  ping     [kernel.kallsyms]  [k] el0_svc
+     0.18%     0.00%  ping     [kernel.kallsyms]  [k] do_el0_svc
+     0.17%     0.02%  nc       [kernel.kallsyms]  [k] __folio_put
+     0.17%     0.09%  nc       [kernel.kallsyms]  [k] tcp_poll
+     0.17%     0.17%  nc       [kernel.kallsyms]  [k] fdget_pos
+     0.16%     0.04%  nc       [kernel.kallsyms]  [k] __pollwait
+     0.16%     0.00%  nc       [kernel.kallsyms]  [k] ipv4_conntrack_local
+     0.15%     0.01%  dd       [kernel.kallsyms]  [k] mutex_lock
+     0.14%     0.13%  nc       [kernel.kallsyms]  [k] free_frozen_pages
+     0.14%     0.07%  nc       [kernel.kallsyms]  [k] nf_conntrack_in
+     0.14%     0.00%  dd       [kernel.kallsyms]  [k] __mutex_lock_slowpath
+     0.13%     0.13%  dd       [kernel.kallsyms]  [k] __wake_up_sync_key
+     0.13%     0.13%  dd       [kernel.kallsyms]  [k] mutex_spin_on_owner
+     0.12%     0.00%  nc       [kernel.kallsyms]  [k] tty_buffer_flush_work
+     0.11%     0.00%  nc       [kernel.kallsyms]  [k] flush_work
+     0.11%     0.04%  swapper  [kernel.kallsyms]  [k] net_rx_action
+     0.11%     0.03%  nc       [kernel.kallsyms]  [k] remove_wait_queue
+     0.10%     0.10%  nc       [kernel.kallsyms]  [k] _raw_spin_lock_irqsave
+     0.09%     0.00%  nc       [kernel.kallsyms]  [k] tcp_mstamp_refresh
+     0.09%     0.02%  nc       [kernel.kallsyms]  [k] add_wait_queue
+     0.09%     0.06%  nc       [kernel.kallsyms]  [k] __flush_work
+     0.08%     0.00%  ping     ping               [.] 0x0000aaaad7b94cf0
+     0.08%     0.00%  ping     ping               [.] 0x0000aaaad7b93eb4
+     0.08%     0.00%  ping     ping               [.] 0x0000aaaad7b9c004
+     0.08%     0.00%  perf     perf               [.] _start
+     0.08%     0.00%  perf     libc.so.6          [.] __libc_start_main@@GLIBC_2.34
+     0.08%     0.00%  perf     libc.so.6          [.] __libc_start_call_main
+     0.08%     0.00%  perf     perf               [.] main
+     0.08%     0.00%  perf     perf               [.] handle_internal_command
+     0.08%     0.00%  perf     perf               [.] run_builtin
+     0.08%     0.00%  perf     perf               [.] cmd_record
+     0.08%     0.00%  perf     perf               [.] __cmd_record.constprop.0
+     0.08%     0.00%  perf     libc.so.6          [.] __syscall_cancel
+     0.08%     0.00%  perf     libc.so.6          [.] __internal_syscall_cancel
+     0.08%     0.00%  perf     libc.so.6          [.] __syscall_cancel_arch
+     0.08%     0.00%  perf     [kernel.kallsyms]  [k] el0t_64_sync
+     0.08%     0.00%  perf     [kernel.kallsyms]  [k] el0t_64_sync_handler
+     0.08%     0.00%  perf     [kernel.kallsyms]  [k] el0_svc
+     0.08%     0.00%  perf     [kernel.kallsyms]  [k] do_el0_svc
+     0.08%     0.00%  ping     libc.so.6          [.] _IO_fflush
+     0.08%     0.00%  ping     libc.so.6          [.] _IO_file_sync@@GLIBC_2.17
+     0.08%     0.00%  ping     libc.so.6          [.] _IO_do_write@@GLIBC_2.17
+     0.08%     0.00%  ping     libc.so.6          [.] new_do_write
+     0.08%     0.00%  ping     libc.so.6          [.] _IO_file_write@@GLIBC_2.17
+     0.07%     0.00%  ping     [kernel.kallsyms]  [k] __arm64_sys_write
+     0.07%     0.00%  perf     perf               [.] record__mmap_read_evlist
+     0.07%     0.00%  perf     perf               [.] perf_mmap__push
+     0.07%     0.00%  perf     perf               [.] record__pushfn
+     0.07%     0.00%  perf     perf               [.] writen
+     0.07%     0.00%  perf     perf               [.] ion
+     0.07%     0.00%  perf     [kernel.kallsyms]  [k] __arm64_sys_write
+     0.07%     0.00%  perf     [kernel.kallsyms]  [k] fuse_file_write_iter
+     0.07%     0.00%  perf     [kernel.kallsyms]  [k] fuse_perform_write
+     0.07%     0.06%  nc       [kernel.kallsyms]  [k] nf_conntrack_tcp_packet
+     0.07%     0.02%  nc       [kernel.kallsyms]  [k] pipe_poll
+     0.07%     0.00%  ping     [kernel.kallsyms]  [k] fuse_file_write_iter
+     0.07%     0.00%  ping     ping               [.] 0x0000aaaacdd14cf0
+     0.07%     0.00%  ping     ping               [.] 0x0000aaaacdd13eb4
+     0.07%     0.00%  ping     ping               [.] 0x0000aaaacdd1c004
+     0.06%     0.06%  dd       [kernel.kallsyms]  [k] _raw_spin_unlock
+     0.06%     0.00%  nc       [kernel.kallsyms]  [k] ktime_get_with_offset
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] __arm64_sys_sendto
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] inet_sendmsg
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] ping_v4_sendmsg
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] fuse_perform_write
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] __fuse_simple_request
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] virtio_fs_send_req
+     0.06%     0.06%  nc       [kernel.kallsyms]  [k] copy_page_to_iter
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] ping_v4_push_pending_frames
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] ip_push_pending_frames
+     0.06%     0.00%  ping     ping               [.] 0x0000aaaabd4b4cf0
+     0.06%     0.00%  ping     ping               [.] 0x0000aaaabd4b3eb4
+     0.06%     0.00%  ping     ping               [.] 0x0000aaaabd4bc004
+     0.06%     0.06%  ping     [kernel.kallsyms]  [k] virtio_fs_enqueue_req
+     0.06%     0.02%  nc       [kernel.kallsyms]  [k] tcp_ack
+     0.06%     0.00%  ping     [kernel.kallsyms]  [k] ip_send_skb
+     0.05%     0.03%  nc       [kernel.kallsyms]  [k] sk_page_frag_refill
+     0.05%     0.01%  ping     libc.so.6          [.] __poll
+     0.05%     0.01%  nc       [kernel.kallsyms]  [k] release_sock
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] ip_output
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] __dev_queue_xmit
+     0.05%     0.02%  nc       [kernel.kallsyms]  [k] loopback_xmit
+     0.05%     0.01%  nc       [kernel.kallsyms]  [k] skb_attempt_defer_free
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] net_rx_action
+     0.05%     0.00%  nc       [kernel.kallsyms]  [k] dev_hard_start_xmit
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] local_bh_enable
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] __local_bh_enable_ip
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] do_softirq_own_stack
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] call_on_irq_stack
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] ____do_softirq
+     0.05%     0.00%  ping     [kernel.kallsyms]  [k] __do_softirq
+     0.05%     0.05%  nc       [kernel.kallsyms]  [k] fput
+     0.04%     0.00%  perf     [kernel.kallsyms]  [k] __fuse_simple_request
+     0.04%     0.00%  perf     [kernel.kallsyms]  [k] virtio_fs_send_req
+     0.04%     0.04%  nc       [kernel.kallsyms]  [k] _raw_spin_lock_irq
+     0.04%     0.04%  dd       [kernel.kallsyms]  [k] copy_page_from_iter
+     0.04%     0.02%  swapper  [kernel.kallsyms]  [k] sched_balance_domains
+     0.04%     0.00%  ping     [kernel.kallsyms]  [k] nf_hook_slow
+     0.04%     0.00%  ping     [kernel.kallsyms]  [k] br_handle_frame
+     0.04%     0.00%  ping     [kernel.kallsyms]  [k] br_nf_pre_routing
+     0.04%     0.01%  swapper  [kernel.kallsyms]  [k] virtnet_poll
+     0.03%     0.00%  ping     ping               [.] 0x0000aaaad7b9b36c
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] br_nf_pre_routing_finish
+     0.03%     0.00%  ping     ping               [.] 0x0000aaaad7b98da0
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] br_handle_frame_finish
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] br_pass_frame_up
+     0.03%     0.03%  nc       [kernel.kallsyms]  [k] __mutex_lock
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] __netif_receive_skb
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] netif_receive_skb
+     0.03%     0.03%  nc       [kernel.kallsyms]  [k] _raw_spin_unlock_irq
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] ip_rcv
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] ip_sabotage_in
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] ip_rcv_finish
+     0.03%     0.00%  swapper  [kernel.kallsyms]  [k] napi_complete_done
+     0.03%     0.00%  swapper  [kernel.kallsyms]  [k] ip_rcv
+     0.03%     0.03%  nc       [kernel.kallsyms]  [k] nf_nat_inet_fn
+     0.03%     0.03%  nc       libc.so.6          [.] __GI___libc_write
+     0.03%     0.03%  perf     [kernel.kallsyms]  [k] virtio_fs_enqueue_req
+     0.03%     0.01%  nc       [kernel.kallsyms]  [k] tcp_event_new_data_sent
+     0.03%     0.00%  ping     ping               [.] 0x0000aaaacdd1b36c
+     0.03%     0.00%  ping     [kernel.kallsyms]  [k] __arm64_sys_ppoll
+     0.03%     0.00%  ping     ping               [.] 0x0000aaaad7b9aaf8
+     0.03%     0.00%  ping     ping               [.] 0x0000aaaad7b97240
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] __sk_mem_schedule
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] _raw_spin_unlock_bh
+     0.02%     0.00%  swapper  [kernel.kallsyms]  [k] ip_sublist_rcv
+     0.02%     0.00%  ping     [kernel.kallsyms]  [k] ip_forward
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaabd4baaf8
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaabd4b7240
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaacdd18da0
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaacdd1ac20
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] __netif_rx
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] __alloc_pages_noprof
+     0.02%     0.02%  nc       nc.openbsd         [.] 0x000000000000533c
+     0.02%     0.02%  nc       nc.openbsd         [.] 0x000000000000543c
+     0.02%     0.02%  nc       nc.openbsd         [.] 0x0000000000005520
+     0.02%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30749d7
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaabd4bb36c
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaabd4b8da0
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaad7b9ac20
+     0.02%     0.00%  swapper  [kernel.kallsyms]  [k] ip_list_rcv
+     0.02%     0.00%  swapper  [kernel.kallsyms]  [k] ip_route_input_noref
+     0.02%     0.00%  swapper  [kernel.kallsyms]  [k] ip_route_input_rcu
+     0.02%     0.02%  dd       [kernel.kallsyms]  [k] _raw_spin_trylock
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] __kfree_skb
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] __siphash_unaligned
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] tcp_rearm_rto
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] _raw_spin_trylock
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] fpsimd_restore_current_state
+     0.02%     0.02%  perf     [kernel.kallsyms]  [k] virtio_fs_request_complete
+     0.02%     0.02%  perf     [kernel.kallsyms]  [k] __arch_copy_from_user
+     0.02%     0.02%  swapper  [kernel.kallsyms]  [k] fib_table_lookup
+     0.02%     0.02%  swapper  [kernel.kallsyms]  [k] tick_nohz_idle_exit
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] nf_nat_ipv4_local_fn
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] __alloc_skb
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] tty_ldisc_ref_wait
+     0.02%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075520
+     0.02%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545103
+     0.02%     0.00%  ping     [kernel.kallsyms]  [k] dev_hard_start_xmit
+     0.02%     0.00%  swapper  [kernel.kallsyms]  [k] ip_forward
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] _copy_from_iter
+     0.02%     0.02%  nc       [kernel.kallsyms]  [k] fpsimd_load_state
+     0.02%     0.02%  nc       libc.so.6          [.] read
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] _raw_spin_lock_bh
+     0.02%     0.01%  dd       [kernel.kallsyms]  [k] prepare_to_wait_event
+     0.02%     0.02%  dd       [kernel.kallsyms]  [k] fdget_pos
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] mod_timer
+     0.02%     0.01%  nc       [kernel.kallsyms]  [k] lock_sock_nested
+     0.02%     0.00%  nc       [kernel.kallsyms]  [k] sk_reset_timer
+     0.02%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075103
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaacdd1aaf8
+     0.02%     0.00%  ping     ping               [.] 0x0000aaaacdd17240
+     0.01%     0.01%  dd       [kernel.kallsyms]  [k] read_zero
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] set_user_sigmask
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] vm_notify
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] sched_balance_rq
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] kmem_cache_alloc_node_noprof
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] ldsem_down_read
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] ip_output
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] icmp_rcv
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] sch_direct_xmit
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] start_xmit
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] virtqueue_notify
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] el0t_64_sync
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] ret_from_fork
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] el0t_64_sync_handler
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] kthread
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] el0_svc
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __fib_lookup
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] fib_rules_lookup
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] fib4_rule_action
+     0.01%     0.01%  dd       dd                 [.] 0x00000000000092b0
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] kfree
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] tcp_ack_update_rtt
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] _raw_spin_unlock
+     0.01%     0.00%  nc       [kernel.kallsyms]  [k] nf_nat_ipv4_out
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x00000000000055f4
+     0.01%     0.00%  nc       [kernel.kallsyms]  [k] tcp_schedule_loss_probe
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] run_timer_softirq
+     0.01%     0.00%  nc       [kernel.kallsyms]  [k] napi_consume_skb
+     0.01%     0.00%  nc       [kernel.kallsyms]  [k] tcp_rtx_queue_unlink_and_free
+     0.01%     0.00%  ping     ping               [.] 0x0000aaaabd4bac20
+     0.01%     0.00%  swapper  [unknown]          [k] 0x000000000009d4e4
+     0.01%     0.00%  swapper  [unknown]          [k] 0x0000000000064cd4
+     0.01%     0.00%  swapper  [unknown]          [k] 0x0000000000064d98
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] do_el0_svc
+     0.01%     0.01%  dd       [kernel.kallsyms]  [k] osq_lock
+     0.01%     0.01%  dd       [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] cubictcp_acked
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] rb_erase
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] nf_confirm
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] tcp_add_backlog
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] eth_type_trans
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] tty_chars_in_buffer
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000005388
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x000000000000547c
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] arch_counter_get_cntvct
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] datagram_poll
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] fdget
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] nft_do_chain
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] sock_poll
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] _nohz_idle_balance
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] nohz_run_idle_balance
+     0.01%     0.00%  nc       [kernel.kallsyms]  [k] nf_nat_ipv4_pre_routing
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000001c20
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] ping_recvmsg
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] br_dev_xmit
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad854547c
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad85455f4
+     0.01%     0.00%  perf     [kernel.kallsyms]  [k] __filemap_get_folio_mpol
+     0.01%     0.00%  ping     libc.so.6          [.] __libc_recvmsg
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] __arm64_sys_recvmsg
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] __sys_recvmsg
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] ____sys_recvmsg
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] inet_recvmsg
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] nft_do_chain_inet
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] tmigr_handle_remote
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] timer_expire_remote
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __run_timer_base
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __dev_queue_xmit
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] call_timer_fn
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] nf_hook_slow
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] dev_hard_start_xmit
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] process_timeout
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __arm64_sys_futex
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] wake_up_process
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] try_to_wake_up
+     0.01%     0.01%  dd       [kernel.kallsyms]  [k] kill_fasync
+     0.01%     0.01%  dd       [kernel.kallsyms]  [k] local_daif_restore
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] ipv4_dst_check
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] ipv4_mtu
+     0.01%     0.00%  nc       [kernel.kallsyms]  [k] nf_nat_ipv4_local_in
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] validate_xmit_skb
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] _copy_to_iter
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] kmem_cache_free
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] bpf_lsm_file_permission
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] tcp_wfree
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] radix_tree_lookup
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] mutex_unlock
+     0.01%     0.01%  nc       [kernel.kallsyms]  [k] security_socket_recvmsg
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000001da0
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000001b30
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x00000000000049a8
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x00000000000049c0
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000004a00
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x000000000000504c
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000005164
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000005344
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000005460
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000005608
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x0000000000005664
+     0.01%     0.01%  nc       nc.openbsd         [.] 0x00000000000056d0
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] schedule
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] ip_route_input_rcu
+     0.01%     0.01%  ping     [kernel.kallsyms]  [k] virtio_fs_request_complete
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] memcmp
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] idle_cpu
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] default_idle_call
+     0.01%     0.01%  swapper  [kernel.kallsyms]  [k] flush_smp_call_function_queue
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] __kfree_skb
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] nf_flow_offload_inet_hook
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] veth_xmit
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] fib_validate_source
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30756cf
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3071c20
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3074a00
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab307504c
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075344
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075388
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075460
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad85449d7
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad854564f
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad85449a8
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545164
+     0.01%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545664
+     0.01%     0.00%  perf-ex  libc.so.6          [.] __execvpe_common.isra.0
+     0.01%     0.00%  perf-ex  libc.so.6          [.] __GI___execve
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] el0t_64_sync
+     0.01%     0.00%  sleep    [kernel.kallsyms]  [k] el0t_64_sync
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] el0t_64_sync_handler
+     0.01%     0.00%  sleep    [kernel.kallsyms]  [k] el0t_64_sync_handler
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] el0_svc
+     0.01%     0.00%  sleep    [kernel.kallsyms]  [k] el0_svc
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] do_el0_svc
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] __arm64_sys_execve
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] do_execveat_common
+     0.01%     0.00%  perf-ex  [kernel.kallsyms]  [k] bprm_execve
+     0.01%     0.00%  ping     ping               [.] 0x0000aaaabd4bb184
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] ip_route_input_noref
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] skb_free_datagram
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] consume_skb
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] ktime_get_ts64
+     0.01%     0.00%  ping     [kernel.kallsyms]  [k] schedule_hrtimeout_range
+     0.01%     0.00%  sleep    [kernel.kallsyms]  [k] do_el0_svc
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] br_handle_frame
+     0.01%     0.00%  swapper  [unknown]          [k] 0x000000000006f168
+     0.01%     0.00%  swapper  [unknown]          [k] 0x000000000002ec14
+     0.01%     0.00%  swapper  [unknown]          [k] 0x000000000002eb14
+     0.01%     0.00%  swapper  [unknown]          [k] 0x00000000000a0670
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] ping_rcv
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __ping_queue_rcv_skb
+     0.01%     0.00%  swapper  [unknown]          [.] 0x000000000048e4f4
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] sock_queue_rcv_skb_reason
+     0.01%     0.00%  swapper  [unknown]          [.] 0x000000000045a7f4
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __sock_queue_rcv_skb
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] rcu_nocb_cb_kthread
+     0.01%     0.00%  swapper  [unknown]          [.] 0x000000000045a370
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] nft_do_chain_inet
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] sock_def_readable
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] __wake_up_sync_key
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] br_fdb_find_rcu
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] futex_wait
+     0.01%     0.00%  swapper  [kernel.kallsyms]  [k] nft_do_chain
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] search_extable
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] memcmp
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] __mutex_lock
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] __next_zones_zonelist
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] _raw_spin_lock_irqsave
+     0.00%     0.00%  dd       libc.so.6          [.] read
+     0.00%     0.00%  dd       dd                 [.] 0x0000000000002e30
+     0.00%     0.00%  dd       dd                 [.] 0x00000000000031ac
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __pcs_replace_empty_main
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __pv_queued_spin_lock_slowpath
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __usecs_to_jiffies
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] rb_insert_color
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] osq_unlock
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] tcp_leave_memory_pressure
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __mem_cgroup_uncharge
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] ipv4_conntrack_defrag
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] arch_counter_read
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __nf_ct_refresh_acct
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] skb_try_coalesce
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] sock_rfree
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] ns_to_timespec64
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] tcp_rcv_space_adjust
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] security_file_permission
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __rseq_handle_slowpath
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] free_pages_and_swap_cache
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] ldsem_up_read
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] tty_ldisc_deref
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000001da4
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x00000000000049d8
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005040
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x00000000000050e4
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005184
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005300
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005318
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005364
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005400
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005448
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x000000000000549c
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005504
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x00000000000055fc
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000000000005778
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] __filemap_add_folio
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] __mem_cgroup_charge
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] folio_add_lru
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] copy_folio_from_iter_atomic
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] generic_write_checks
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] fdget
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] blk_mq_end_request
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] blk_mq_end_request
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] mas_find
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] __qdisc_run
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] __pi_memcpy_generic
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] fib_table_lookup
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] ipv4_conntrack_defrag
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] nf_conntrack_in
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] nf_flow_offload_ip_hook
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] kfree
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] nft_ct_get_eval
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] kiocb_modified
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] skb_put
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] put_timespec64
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] xas_load
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] __ip_select_ident
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] fdget_pos
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] mutex_lock
+     0.00%     0.00%  ping     libc.so.6          [.] __GI___libc_write
+     0.00%     0.00%  ping     libc.so.6          [.] __printf_buffer
+     0.00%     0.00%  ping     libc.so.6          [.] clock_gettime@@GLIBC_2.17
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] btrfs_release_file
+     0.00%     0.00%  sleep    libc.so.6          [.] __internal_syscall_cancel
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ipv6_chk_mcast_addr
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nf_conntrack_icmp_packet
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nft_meta_get_eval
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nft_bitmap_lookup
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nft_rhash_lookup
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ping_lookup
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] wake_up_q
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] futex_hash_put
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] schedule
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] virtqueue_disable_cb
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] __rseq_handle_slowpath
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000615b60
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] do_nanosleep
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] mntput
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] kfree
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] rcu_gp_kthread_wake
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000002ef20
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000040ac50
+     0.00%     0.00%  swapper  [unknown]          [.] 0x00000000000a0258
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ftrace_profile_free_filter
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] tick_nohz_idle_enter
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000461940
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] __d_free
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] tick_nohz_idle_got_tick
+     0.00%     0.00%  bash     bash               [.] _start
+     0.00%     0.00%  bash     libc.so.6          [.] __libc_start_main@@GLIBC_2.34
+     0.00%     0.00%  bash     libc.so.6          [.] __libc_start_call_main
+     0.00%     0.00%  bash     bash               [.] main
+     0.00%     0.00%  bash     bash               [.] reader_loop
+     0.00%     0.00%  bash     bash               [.] execute_command
+     0.00%     0.00%  bash     bash               [.] execute_command_internal
+     0.00%     0.00%  bash     bash               [.] 0x0000aaaadbbb0630
+     0.00%     0.00%  bash     bash               [.] wait_for
+     0.00%     0.00%  bash     bash               [.] 0x0000aaaadbc8308c
+     0.00%     0.00%  bash     libc.so.6          [.] __GI___wait4
+     0.00%     0.00%  bash     libc.so.6          [.] __syscall_cancel
+     0.00%     0.00%  bash     libc.so.6          [.] __internal_syscall_cancel
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] el0t_64_sync
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] el0t_64_sync_handler
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] el0_svc
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] exit_to_user_mode_loop
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] __rseq_handle_slowpath
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] el1h_64_sync
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] el1h_64_sync_handler
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] el1_abort
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] do_mem_abort
+     0.00%     0.00%  bash     [kernel.kallsyms]  [k] insn_may_access_user
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] el1h_64_irq
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] el1h_64_irq_handler
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] el1_interrupt
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] irq_exit_rcu
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] do_softirq_own_stack
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] call_on_irq_stack
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] ____do_softirq
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] __do_softirq
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] net_rx_action
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] virtnet_poll
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] napi_complete_done
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] ip_list_rcv
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] ip_sublist_rcv
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] ip_forward
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] ip_output
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] __dev_queue_xmit
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] dev_hard_start_xmit
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] br_dev_xmit
+     0.00%     0.00%  dd       [kernel.kallsyms]  [k] br_fdb_find_rcu
+     0.00%     0.00%  dd       dd                 [.] 0x0000aaaae78d85d7
+     0.00%     0.00%  dd       dd                 [.] 0x0000aaaae78d2e30
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __arm64_sys_exit_group
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] do_group_exit
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] do_exit
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] mmput
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] __mmput
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] exit_mmap
+     0.00%     0.00%  nc       [kernel.kallsyms]  [k] tlb_finish_mmu
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab307533b
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3071b30
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3071da0
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3071da4
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30749c0
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075318
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075400
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075448
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab307549c
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30755f4
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab30755fc
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaab3075608
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad854533b
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545547
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8541b30
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8541c20
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8541da0
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad85449c0
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545040
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad85450e4
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545184
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545300
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545364
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545388
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545504
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545520
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545608
+     0.00%     0.00%  nc       nc.openbsd         [.] 0x0000aaaad8545778
+     0.00%     0.00%  perf     perf               [.] fdarray__poll
+     0.00%     0.00%  perf     libc.so.6          [.] __poll
+     0.00%     0.00%  perf     [kernel.kallsyms]  [k] __arm64_sys_ppoll
+     0.00%     0.00%  perf-ex  perf               [.] __cmd_record.constprop.0
+     0.00%     0.00%  perf-ex  perf               [.] evlist__prepare_workload
+     0.00%     0.00%  perf-ex  libc.so.6          [.] __execvpe
+     0.00%     0.00%  sleep    libc.so.6          [.] __execvpe_common.isra.0
+     0.00%     0.00%  sleep    libc.so.6          [.] __GI___execve
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] __arm64_sys_execve
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] do_execveat_common
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] bprm_execve
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] kernel_read
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] load_elf_binary
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] __kernel_read
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] __arch_clear_user
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] ovl_read_iter
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] el1h_64_sync
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] backing_file_read_iter
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] el1h_64_sync_handler
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] vfs_iter_read
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] el1_abort
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] btrfs_file_read_iter
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] do_mem_abort
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] filemap_read
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] load_elf_binary
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] begin_new_exec
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] page_cache_sync_ra
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] mmput
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] page_cache_ra_order
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] __mmput
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] page_cache_ra_unbounded
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] blk_finish_plug
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] exit_mmap
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] blk_mq_flush_plug_list
+     0.00%     0.00%  perf-ex  [kernel.kallsyms]  [k] unmap_vmas
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] __fib_lookup
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] __ip_make_skb
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] __netif_rx
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] fib_rules_lookup
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] fib4_rule_action
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] ip_append_data
+     0.00%     0.00%  ping     ping               [.] 0x0000aaaacdd1b184
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] neigh_resolve_output
+     0.00%     0.00%  ping     ping               [.] 0x0000aaaacdd18c94
+     0.00%     0.00%  ping     ping               [.] 0x0000aaaacdd16f24
+     0.00%     0.00%  ping     libc.so.6          [.] __printf_chk
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] ktime_get_with_offset
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] nf_ct_bridge_pre
+     0.00%     0.00%  ping     [kernel.kallsyms]  [k] nft_do_chain_bridge
+     0.00%     0.00%  ping     libc.so.6          [.] __vfprintf_internal
+     0.00%     0.00%  ping     ping               [.] 0x0000aaaad7b9a9e3
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] handle_mm_fault
+     0.00%     0.00%  sleep    sleep              [.] 0x0000aaaac1621f30
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] filemap_fault
+     0.00%     0.00%  sleep    libc.so.6          [.] __libc_start_main@@GLIBC_2.34
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] __arm64_sys_exit_group
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] page_cache_ra_order
+     0.00%     0.00%  sleep    libc.so.6          [.] __libc_start_call_main
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] do_group_exit
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] page_cache_ra_unbounded
+     0.00%     0.00%  sleep    sleep              [.] 0x0000aaaac1621d98
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] blk_finish_plug
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] do_exit
+     0.00%     0.00%  sleep    libc.so.6          [.] __nanosleep
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] blk_mq_flush_plug_list
+     0.00%     0.00%  sleep    [kernel.kallsyms]  [k] task_work_run
+     0.00%     0.00%  sleep    libc.so.6          [.] clock_nanosleep@@GLIBC_2.17
+     0.00%     0.00%  swapper  [unknown]          [k] 0x0000000000489f84
+     0.00%     0.00%  swapper  [unknown]          [k] 0x0000000000458124
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] br_nf_pre_routing
+     0.00%     0.00%  swapper  [unknown]          [k] 0x0000000000457c44
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] br_nf_pre_routing_ipv6
+     0.00%     0.00%  swapper  [unknown]          [k] 0x0000000000455754
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000048c164
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000048e484
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] br_nf_hook_thresh
+     0.00%     0.00%  swapper  [unknown]          [k] 0x00000000004556e8
+     0.00%     0.00%  swapper  [unknown]          [k] 0x0000000000455734
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000055442c
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] br_handle_frame_finish
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000045527c
+     0.00%     0.00%  swapper  [unknown]          [k] 0x00000000004557f8
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000055455c
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] br_pass_frame_up
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000041ff58
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000045fc68
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000b3fd24
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] netif_receive_skb
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000006f024
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000041f484
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000048d1f0
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000b42230
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] __netif_receive_skb
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000009ffe8
+     0.00%     0.00%  swapper  [unknown]          [k] 0x000000000041f384
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000b42070
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ipv6_rcv
+     0.00%     0.00%  swapper  [unknown]          [k] 0x0000000000491760
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000b3ca38
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] krpc_kthread
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000009d554
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000098ae88
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] inject_dref
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ip_sabotage_in
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nf_hook_slow_list
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] rcu_gp_kthread
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000069cf4
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000984d90
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ip6_rcv_finish
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ipv4_conntrack_in
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] kern_path
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nft_do_chain_bridge
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] put_cred_rcu
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] rcu_gp_fqs_loop
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000069870
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000006f0f4
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000458a88
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000985db4
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] __arm64_sys_nanosleep
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] exit_to_user_mode_loop
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] force_qs_rnp
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] futex_wake
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] ip6_mc_input
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] nf_conntrack_in
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] path_lookupat
+     0.00%     0.00%  swapper  [kernel.kallsyms]  [k] security_cred_free
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000067f9c
+     0.00%     0.00%  swapper  [unknown]          [.] 0x0000000000082b6c
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000044bda4
+     0.00%     0.00%  swapper  [unknown]          [.] 0x000000000077802c
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
