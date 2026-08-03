@@ -40,6 +40,9 @@ void Reassembler::insert( uint64_t first_index, string data, bool is_last_substr
   data = data.substr( start_idx, first_unacceptable_index_ - first_index );
 
   for ( uint64_t i = 0; i < data.size(); i++ ) {
+    if ( present_[( physical_idx + i ) % capacity_] ) {
+      continue;
+    }
     buffer_[( physical_idx + i ) % capacity_] = data[i];
     present_[( physical_idx + i ) % capacity_] = true;
   }
